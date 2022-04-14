@@ -1,0 +1,12 @@
+@import "./components/styles/api.scss";
+@import "./components/styles/list.scss";
+@import "./components/styles/login.scss";
+@import "./components/styles/modal.scss";
+@import "./components/styles/search.scss";
+@import "./components/styles/zoom.scss";
+
+$veryImportantColor: darkblue;
+
+#main {
+  color: $veryImportantColor;
+}

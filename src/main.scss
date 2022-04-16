@@ -45,6 +45,14 @@ a:hover {
   cursor: pointer;
 }
 
+.section:first-of-type {
+  border-left: 0;
+}
+
+.section:last-of-type {
+  border-right: 0;
+}
+
 .disabled {
   background-color: rgba(40, 40, 40, 0.899);
   height: 100%;

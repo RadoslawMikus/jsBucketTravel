@@ -38,7 +38,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
-    assetModuleFilename: "assets/images/[name][ext]",
+    assetModuleFilename: "assets/[name][ext]",
   },
 
   plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],

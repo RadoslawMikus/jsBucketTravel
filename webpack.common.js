@@ -22,9 +22,15 @@ module.exports = {
       },
 
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif|svg|json)$/i,
         type: "asset/resource",
       },
     ],
+  },
+
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
 };

@@ -1,12 +1,118 @@
 @import "./components/styles/api.scss";
 @import "./components/styles/list.scss";
-@import "./components/styles/login.scss";
 @import "./components/styles/modal.scss";
-@import "./components/styles/search.scss";
 @import "./components/styles/zoom.scss";
 
-$veryImportantColor: darkblue;
+$bgColor: #202020;
 
-#main {
-  color: $veryImportantColor;
+// General
+// --------------------------
+
+.bg-grey {
+  background-color: $bgColor;
 }
+
+a,
+a:hover {
+  color: #fff !important;
+}
+
+// Navbar
+// --------------------------
+
+@import "./components/styles/search.scss";
+
+// Menu
+// --------------------------
+
+.cardsBox {
+  overflow: hidden;
+}
+
+.section {
+  border: 1px solid black;
+  width: 20%;
+  height: calc(100vh - 118px);
+  transition: 0.5s all ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.section:hover {
+  width: 35%;
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: rgba(40, 40, 40, 0.899);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.title {
+  background-color: rgba(32, 32, 32, 0.6);
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+#travel {
+  background-image: url(../assets/images/1.jpg);
+  background-size: cover;
+  background-position: left;
+}
+
+#events {
+  background-image: url(../assets/images/2.jpg);
+  background-size: cover;
+}
+
+#personal {
+  background-image: url(../assets/images/3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#fun {
+  background-image: url(../assets/images/4.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#others {
+  background-image: url(../assets/images/5.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+// Login
+// --------------------------
+
+@import "./components/styles/login.scss";
+
+// Travel
+// --------------------------
+
+.travelBox {
+  height: calc(100vh - 118px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.travelBox h1 {
+  padding: 10px;
+}
+
+// Bootstrap
+// --------------------------
+
+@import "~bootstrap/scss/bootstrap";

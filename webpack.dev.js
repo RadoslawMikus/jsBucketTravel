@@ -53,6 +53,28 @@ module.exports = merge(common, {
           removeComments: false,
         },
       }),
+
+      new HtmlWebpackPlugin({
+        template: "./src/logowanie.html",
+        filename: "logowanie.html",
+        inject: "body",
+        minify: {
+          removeAttributeQuotes: false,
+          collapseWhitespace: false,
+          removeComments: false,
+        },
+      }),
+
+      new HtmlWebpackPlugin({
+        template: "./src/podroze.html",
+        filename: "podroze.html",
+        inject: "body",
+        minify: {
+          removeAttributeQuotes: false,
+          collapseWhitespace: false,
+          removeComments: false,
+        },
+      }),
     ],
   },
   devServer: {

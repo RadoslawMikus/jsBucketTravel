@@ -56,6 +56,28 @@ module.exports = merge(common, {
           removeComments: true,
         },
       }),
+
+      new HtmlWebpackPlugin({
+        template: "./src/logowanie.html",
+        filename: "logowanie.html",
+        inject: "body",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true,
+        },
+      }),
+
+      new HtmlWebpackPlugin({
+        template: "./src/podroze.html",
+        filename: "podroze.html",
+        inject: "body",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true,
+        },
+      }),
       new TerserPlugin(),
     ],
   },

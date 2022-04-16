@@ -1,5 +1,10 @@
-$veryImportantColor: green;
+.loginBox {
+  height: calc(100vh - 118px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-#login {
-  color: $veryImportantColor;
+.loginBox h1 {
+  padding: 10px;
 }

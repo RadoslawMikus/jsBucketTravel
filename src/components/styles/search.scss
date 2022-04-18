@@ -1,7 +1,7 @@
 .searchingBar {
   border-radius: 5px;
   border: 0;
-  padding: 3px 5px;
+  padding: 3px 10px;
   margin-left: 10px;
   width: 200px;
   height: 30px;
@@ -20,8 +20,7 @@
 }
 
 .suggestions {
-  background-color: #fff;
-  color: rgb(150, 150, 150);
+  background-color: rgb(245, 245, 245);
   position: absolute;
   margin-left: 10px;
   z-index: 2;
@@ -29,4 +28,23 @@
   top: 30px;
   border-radius: 0 0 5px 5px;
   padding: 0 5px;
+}
+
+.suggestions a {
+  color: rgb(112, 112, 112) !important;
+  text-decoration: none;
+}
+
+.bar {
+  margin: 3px 0;
+  color: rgb(150, 150, 150);
+}
+
+.bar:last-of-type {
+  display: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }

@@ -1,3 +1,11 @@
+const countriesJSON = require("../../assets/countries.json");
+
+fetch("../../assets/countries.json")
+  .then((response) => {
+    return response.json();
+  })
+  .then((jsondata) => console.log(jsondata));
+
 const countries = [
   "Andora",
   "Albania",
@@ -60,16 +68,32 @@ okienko.addEventListener("input", function (event) {
   countries.forEach(function (country) {
     if (country.toLowerCase().startsWith(event.target.value.toLowerCase())) {
       arrCountriesSearch.push(country);
-      suggestions.style.padding = "3px 5px";
+      suggestions.style.padding = "3px 10px";
       okienko.style.borderRadius = "5px 5px 0 0";
     }
   });
 
   let arrSuggestions = arrCountriesSearch.forEach(function (item) {
-    suggestions.innerHTML += item + " <br />";
+    suggestions.innerHTML += `<a href="#">${item}</a> <hr class = "bar">`;
   });
 
-  if (event.target.value == "") {
+  if (event.target.value == "" || arrCountriesSearch == "") {
+    reset();
+    okienko.style.borderRadius = "5px";
+    suggestions.style.padding = "0 5px";
+  }
+});
+
+window.addEventListener("click", function (event) {
+  if (event.target !== okienko && event.target !== suggestions) {
+    reset();
+    okienko.style.borderRadius = "5px";
+    suggestions.style.padding = "0 5px";
+  }
+});
+
+window.addEventListener("keypress", function (event) {
+  if (event.key == "Escape") {
     reset();
     okienko.style.borderRadius = "5px";
     suggestions.style.padding = "0 5px";

@@ -1,101 +1,95 @@
-const countriesJSON = require("../../assets/countries.json");
+// DECLARATIONS
+// -------------------------
 
-fetch("../../assets/countries.json")
-  .then((response) => {
-    return response.json();
-  })
-  .then((jsondata) => console.log(jsondata));
+const okienko = document.querySelector(".searchingBar");
+const suggestions = document.querySelector(".suggestions");
+const xClosing = document.querySelector(".searching span");
+let arrCountriesSearch = [];
 
-const countries = [
-  "Andora",
-  "Albania",
-  "Austria",
-  "Białoruś",
-  "Belgia",
-  "Bośnia i Hercegowina",
-  "Bułgaria",
-  "Chorwacja",
-  "Cypr",
-  "Czechy",
-  "Niemcy",
-  "Dania",
-  "Estonia",
-  "Hiszpania",
-  "Finlandia",
-  "Francja",
-  "Wielka Brytania",
-  "Grecja",
-  "Węgry",
-  "Chorwacja",
-  "Islandia",
-  "Irlandia",
-  "Włochy",
-  "Liechtenstein",
-  "Litwa",
-  "Luksemburg",
-  "Łotwa",
-  "Macedonia Północna",
-  "Malta",
-  "Mołdawia",
-  "Monako",
-  "Czarnogóra",
-  "Holandia",
-  "Norwegia",
-  "Polska",
-  "Portugalia",
-  "Rumunia",
-  "Rosja",
-  "San Marino",
-  "Serbia",
-  "Szwecja",
-  "Szwajcaria",
-  "Słowenia",
-  "Słowacja",
-];
+// RESET SUGGESTIONS
+// -------------------------
 
 const reset = function () {
   arrCountriesSearch = [];
   suggestions.innerHTML = "";
+  okienko.style.borderRadius = "5px";
 };
 
-const okienko = document.querySelector(".searchingBar");
-const suggestions = document.querySelector(".suggestions");
+// READ JSON
+// -------------------------
 
-let arrCountriesSearch = [];
+const readJson = async function () {
+  const countriesJSON = require("../../assets/countries.json");
+  const response = await fetch(countriesJSON);
+  const data = await response.json();
+  const countries = data;
 
-okienko.addEventListener("input", function (event) {
-  reset();
-  countries.forEach(function (country) {
-    if (country.toLowerCase().startsWith(event.target.value.toLowerCase())) {
-      arrCountriesSearch.push(country);
-      suggestions.style.padding = "3px 10px";
-      okienko.style.borderRadius = "5px 5px 0 0";
+  // LOAD COUNTRIES
+  // -------------------------
+
+  const loadCountries = function (event) {
+    reset();
+
+    if (okienko.value != "") {
+      xClosing.style.display = "block";
+    } else {
+      xClosing.style.display = "none";
     }
-  });
+    for (i = 0; i < countries.Countries.length; i++) {
+      if (
+        countries.Countries[i].name
+          .toLowerCase()
+          .startsWith(event.target.value.toLowerCase())
+      ) {
+        arrCountriesSearch.push(countries.Countries[i].name);
+        okienko.style.borderRadius = "5px 5px 0 0";
+      }
+    }
 
-  let arrSuggestions = arrCountriesSearch.forEach(function (item) {
-    suggestions.innerHTML += `<a href="#">${item}</a> <hr class = "bar">`;
-  });
+    // GENERATE SUGGESTIONS
+    // -------------------------
 
-  if (event.target.value == "" || arrCountriesSearch == "") {
-    reset();
-    okienko.style.borderRadius = "5px";
-    suggestions.style.padding = "0 5px";
+    arrCountriesSearch.forEach(function (item) {
+      suggestions.innerHTML += `<a class = "singleSuggestion" href="#">${item}</a> <hr class = "bar">`;
+    });
+
+    // RESET IF EMPTY
+    // -------------------------
+
+    if (event.target.value == "" || arrCountriesSearch == "") {
+      reset();
+    }
+  };
+
+  okienko.addEventListener("input", loadCountries);
+};
+
+readJson();
+
+const clickToStay = function (event) {
+  if (event.target.classList.contains("singleSuggestion")) {
+    okienko.value = event.target.innerHTML;
   }
-});
+};
 
-window.addEventListener("click", function (event) {
-  if (event.target !== okienko && event.target !== suggestions) {
+const clickToClose = function (event) {
+  if (event.target !== okienko) {
     reset();
-    okienko.style.borderRadius = "5px";
-    suggestions.style.padding = "0 5px";
   }
-});
+};
 
-window.addEventListener("keypress", function (event) {
+const escapeToClose = function (event) {
   if (event.key == "Escape") {
     reset();
-    okienko.style.borderRadius = "5px";
-    suggestions.style.padding = "0 5px";
   }
-});
+};
+
+const xToResetInput = function () {
+  okienko.value = "";
+  xClosing.style.display = "none";
+};
+
+window.addEventListener("click", clickToStay);
+window.addEventListener("click", clickToClose);
+xClosing.addEventListener("click", xToResetInput);
+window.addEventListener("keypress", escapeToClose);

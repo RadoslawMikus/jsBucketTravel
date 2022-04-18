@@ -12,6 +12,7 @@
   position: relative;
   height: 100%;
   display: flex;
+  position: relative;
 }
 
 .searchBox {
@@ -27,12 +28,13 @@
   width: 200px;
   top: 30px;
   border-radius: 0 0 5px 5px;
-  padding: 0 5px;
+  padding: 0;
 }
 
 .suggestions a {
   color: rgb(112, 112, 112) !important;
   text-decoration: none;
+  display: block;
 }
 
 .bar {
@@ -47,4 +49,15 @@
 textarea:focus,
 input:focus {
   outline: none;
+}
+
+.singleSuggestion {
+  padding: 4px 10px;
+}
+
+.searching span {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  color: rgb(150, 150, 150);
 }

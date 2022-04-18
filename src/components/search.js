@@ -50,7 +50,7 @@ const readJson = async function () {
     // -------------------------
 
     arrCountriesSearch.forEach(function (item) {
-      suggestions.innerHTML += `<a class = "singleSuggestion" href="#">${item}</a> <hr class = "bar">`;
+      suggestions.innerHTML += `<li><a class= "singleSuggestion" style="" href = "#">${item}</a></li>`;
     });
 
     // RESET IF EMPTY
@@ -64,17 +64,26 @@ const readJson = async function () {
   okienko.addEventListener("input", loadCountries);
 };
 
+// RUN FUNCTION READJSON
+// -------------------------
+
 readJson();
 
-const clickToStay = function (event) {
-  if (event.target.classList.contains("singleSuggestion")) {
-    okienko.value = event.target.innerHTML;
-  }
-};
+// CLICK AND INPUT LISTENERS
+// -------------------------
 
 const clickToClose = function (event) {
-  if (event.target !== okienko) {
+  if (event.target.classList.contains("singleSuggestion")) {
+    okienko.value = event.target.innerHTML;
     reset();
+  } else if (event.target !== okienko) {
+    reset();
+  }
+
+  if (okienko.value != "") {
+    xClosing.style.display = "block";
+  } else {
+    xClosing.style.display = "none";
   }
 };
 
@@ -89,7 +98,32 @@ const xToResetInput = function () {
   xClosing.style.display = "none";
 };
 
-window.addEventListener("click", clickToStay);
+const enterToResetInput = function (event) {
+  if (event.key == "Enter") {
+    okienko.value = "";
+    xClosing.style.display = "none";
+    reset();
+  }
+};
+
+const focusPopular = function (event) {
+  if (event.target.value == "" && arrCountriesSearch == "") {
+    arrCountriesSearch = [
+      "Francja",
+      "Włochy",
+      "Niemcy",
+      "Portugalia",
+      "Hiszpania",
+    ];
+    arrCountriesSearch.forEach(function (item) {
+      suggestions.innerHTML += `<li><a class= "singleSuggestion" style="" href = "#">${item}</a></li><hr class = "bar">`;
+    });
+    okienko.style.borderRadius = "5px 5px 0 0";
+  }
+};
+
 window.addEventListener("click", clickToClose);
-xClosing.addEventListener("click", xToResetInput);
 window.addEventListener("keypress", escapeToClose);
+window.addEventListener("focus", focusPopular, true);
+xClosing.addEventListener("click", xToResetInput);
+xClosing.addEventListener("keypress", enterToResetInput);

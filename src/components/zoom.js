@@ -37,7 +37,7 @@ let maxTopOffset = 0,
   minTopOffset = 0,
   maxLeftOffset = 0,
   minLeftOffset = 0;
-let isPressed;
+export let isPressed = false;
 const bbox = europeMap.getBBox();
 
 const dragDown = function (e) {
@@ -46,7 +46,7 @@ const dragDown = function (e) {
 
   isPressed = true;
 
-  document.addEventListener("mousemove", dragMove);
+  document.addEventListener("mousemove", dragMove, false);
   document.addEventListener("mouseup", dragQuit);
 };
 
@@ -83,6 +83,12 @@ const dragMove = function (e) {
 const dragQuit = function (e) {
   isPressed = false;
 };
+
+function captureClick(e) {
+  e.stopPropagation(); // Stop the click from being propagated.
+  console.log("click captured");
+  window.removeEventListener("click", captureClick, true); // cleanup
+}
 
 mapBox.addEventListener("mousedown", dragDown);
 

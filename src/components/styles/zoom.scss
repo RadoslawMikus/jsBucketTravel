@@ -5,11 +5,13 @@ $veryImportantColor: lightblue;
 }
 
 .travelBox svg {
-  // max-height: 100%;
-
   transition: 0.5s ease-in-out;
   cursor: pointer;
   position: absolute;
+}
+
+.travelBox svg path:hover {
+  fill: #dcffba;
 }
 
 .mapBox {
@@ -19,6 +21,7 @@ $veryImportantColor: lightblue;
   justify-content: center;
   align-items: center;
   position: absolute;
+  padding: 0;
 }
 
 .travelBox {
@@ -28,6 +31,7 @@ $veryImportantColor: lightblue;
   align-items: center;
   overflow: hidden;
   position: relative;
+  background-color: lightblue;
 }
 
 .travelBox h1 {

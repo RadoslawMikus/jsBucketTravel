@@ -16,6 +16,8 @@ const zoomOut = function () {
   if (currentScale >= 1.3) {
     currentScale /= 1.3;
     europeMap.style.transform = `scale(${currentScale})`;
+    mapBox.style.top = "0px";
+    mapBox.style.left = "0px";
   }
 };
 
@@ -27,11 +29,16 @@ zoomMinus.addEventListener("click", zoomOut);
 // Jak przesuwam myszkę trzymając, pamiętaj moją pozycję
 // Odejmuj X i Y początkowe od aktualnego
 
-let xBeg = 0;
-let yBeg = 0;
-let xAft = 0;
-let yAft = 0;
+let xBeg = 0,
+  yBeg = 0,
+  xAft = 0,
+  yAft = 0;
+let maxTopOffset = 0,
+  minTopOffset = 0,
+  maxLeftOffset = 0,
+  minLeftOffset = 0;
 let isPressed;
+const bbox = europeMap.getBBox();
 
 const dragDown = function (e) {
   xBeg = e.clientX;
@@ -49,8 +56,27 @@ const dragMove = function (e) {
     yAft = yBeg - e.clientY;
     xBeg = e.clientX;
     yBeg = e.clientY;
-    mapBox.style.top = mapBox.offsetTop - yAft + "px";
-    mapBox.style.left = mapBox.offsetLeft - xAft + "px";
+
+    if (mapBox.offsetTop > maxTopOffset) {
+      mapBox.style.top = maxTopOffset - yAft + "px";
+    } else if (mapBox.offsetTop < minTopOffset) {
+      mapBox.style.top = minTopOffset - yAft + "px";
+    } else {
+      mapBox.style.top = mapBox.offsetTop - yAft + "px";
+    }
+    maxTopOffset = (bbox.height * currentScale - bbox.height) / 2;
+    minTopOffset = maxTopOffset * -1;
+
+    if (mapBox.offsetLeft > maxLeftOffset) {
+      mapBox.style.left = maxLeftOffset - xAft + "px";
+    } else if (mapBox.offsetLeft < minLeftOffset) {
+      mapBox.style.left = minLeftOffset - xAft + "px";
+    } else {
+      mapBox.style.left = mapBox.offsetLeft - xAft + "px";
+    }
+
+    maxLeftOffset = (bbox.width * currentScale - bbox.width) / 2;
+    minLeftOffset = maxLeftOffset * -1;
   }
 };
 
@@ -60,23 +86,48 @@ const dragQuit = function (e) {
 
 mapBox.addEventListener("mousedown", dragDown);
 
-window.addEventListener(
-  "touchstart",
-  function (event) {
-    document.addEventListener(
-      "touchmove",
-      function (event) {
-        console.log("drzewo");
-      },
-      true
-    );
-    document.addEventListener(
-      "touchend",
-      function (event) {
-        console.log("bujakaszaend");
-      },
-      true
-    );
-  },
-  true
-);
+const touchStartFunction = function (e) {
+  xBeg = e.changedTouches[0].clientX;
+  yBeg = e.changedTouches[0].clientY;
+
+  isPressed = true;
+
+  document.addEventListener("touchmove", touchMoveFunction, true);
+  document.addEventListener("touchend", touchEndFunction, true);
+};
+
+const touchMoveFunction = function (e) {
+  if (isPressed == true) {
+    xAft = xBeg - e.changedTouches[0].clientX;
+    yAft = yBeg - e.changedTouches[0].clientY;
+    xBeg = e.changedTouches[0].clientX;
+    yBeg = e.changedTouches[0].clientY;
+
+    if (mapBox.offsetTop > maxTopOffset) {
+      mapBox.style.top = maxTopOffset - yAft + "px";
+    } else if (mapBox.offsetTop < minTopOffset) {
+      mapBox.style.top = minTopOffset - yAft + "px";
+    } else {
+      mapBox.style.top = mapBox.offsetTop - yAft + "px";
+    }
+    maxTopOffset = (bbox.height * currentScale - bbox.height) / 2;
+    minTopOffset = maxTopOffset * -1;
+
+    if (mapBox.offsetLeft > maxLeftOffset) {
+      mapBox.style.left = maxLeftOffset - xAft + "px";
+    } else if (mapBox.offsetLeft < minLeftOffset) {
+      mapBox.style.left = minLeftOffset - xAft + "px";
+    } else {
+      mapBox.style.left = mapBox.offsetLeft - xAft + "px";
+    }
+
+    maxLeftOffset = (bbox.width * currentScale - window.innerWidth) / 2;
+    minLeftOffset = maxLeftOffset * -1;
+  }
+};
+
+const touchEndFunction = function (e) {
+  isPressed = false;
+};
+
+mapBox.addEventListener("touchstart", touchStartFunction);

@@ -3,3 +3,45 @@ $veryImportantColor: lightblue;
 #zoom {
   color: $veryImportantColor;
 }
+
+.travelBox svg {
+  // max-height: 100%;
+
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+}
+
+.mapBox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.travelBox {
+  height: calc(100vh - 118px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.travelBox h1 {
+  padding: 10px;
+}
+
+.zoomNav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#zoomPlus,
+#zoomMinus {
+  width: 30px;
+  height: 30px;
+}

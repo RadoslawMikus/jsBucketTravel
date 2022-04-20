@@ -3,7 +3,7 @@
 @import "./components/styles/modal.scss";
 @import "./components/styles/zoom.scss";
 
-$bgColor: #202020;
+$bgColor: #ff75c5;
 
 // General
 // --------------------------
@@ -110,6 +110,18 @@ a:hover {
 
 .travelBox h1 {
   padding: 10px;
+}
+
+.osobisteBox {
+  height: 80vh;
+}
+
+.osobisteBox ul {
+  list-style-type: none;
+}
+
+.osobisteBox input {
+  margin: 20px 10px;
 }
 
 // Bootstrap

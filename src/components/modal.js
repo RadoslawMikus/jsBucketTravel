@@ -8,14 +8,14 @@ document.body.appendChild(modalBackground);
 modalBackground.classList.add("modalBackground");
 
 const openModal = function (kraj) {
-  isPressed ? e.preventDefault() : false;
-  kraj.addEventListener("click", function () {
-    modalMap.style.display = "flex";
-    modalBackground.style.display = "flex";
-    modalMap.innerHTML = `<h2>${kraj.getAttribute("name")}</h2>`;
-    console.log(kraj.getAttribute("id") + " " + kraj.getAttribute("name"));
-  });
+  if (isPressed == false) {
+    kraj.addEventListener("click", function () {
+      modalMap.style.display = "flex";
+      modalBackground.style.display = "flex";
+      modalMap.innerHTML = `<h2>${kraj.getAttribute("name")}</h2>`;
+      console.log(kraj.getAttribute("id") + " " + kraj.getAttribute("name"));
+    });
+  }
 };
 
 kraje.forEach(openModal);
-console.log(isPressed);

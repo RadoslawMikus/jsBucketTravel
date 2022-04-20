@@ -84,12 +84,6 @@ const dragQuit = function (e) {
   isPressed = false;
 };
 
-function captureClick(e) {
-  e.stopPropagation(); // Stop the click from being propagated.
-  console.log("click captured");
-  window.removeEventListener("click", captureClick, true); // cleanup
-}
-
 mapBox.addEventListener("mousedown", dragDown);
 
 const touchStartFunction = function (e) {

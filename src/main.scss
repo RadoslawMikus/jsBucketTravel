@@ -3,7 +3,7 @@
 @import "./components/styles/modal.scss";
 @import "./components/styles/zoom.scss";
 
-$bgColor: #af3131;
+$bgColor: #ff75c5;
 
 // General
 // --------------------------
@@ -43,14 +43,6 @@ a:hover {
 .section:hover {
   width: 35%;
   cursor: pointer;
-}
-
-.section:first-of-type {
-  border-left: 0;
-}
-
-.section:last-of-type {
-  border-right: 0;
 }
 
 .disabled {
@@ -118,6 +110,18 @@ a:hover {
 
 .travelBox h1 {
   padding: 10px;
+}
+
+.osobisteBox {
+  height: 80vh;
+}
+
+.osobisteBox ul {
+  list-style-type: none;
+}
+
+.osobisteBox input {
+  margin: 20px 10px;
 }
 
 // Bootstrap

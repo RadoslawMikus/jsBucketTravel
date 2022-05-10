@@ -100,6 +100,29 @@ a:hover {
 // Travel
 // --------------------------
 
+.travelBox {
+  height: calc(100vh - 118px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.travelBox h1 {
+  padding: 10px;
+}
+
+.osobisteBox {
+  height: 80vh;
+}
+
+.osobisteBox ul {
+  list-style-type: none;
+}
+
+.osobisteBox input {
+  margin: 20px 10px;
+}
+
 @import "./components/styles/zoom.scss";
 
 // Bootstrap

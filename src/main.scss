@@ -1,9 +1,8 @@
 @import "./components/styles/api.scss";
 @import "./components/styles/list.scss";
 @import "./components/styles/modal.scss";
-@import "./components/styles/zoom.scss";
 
-$bgColor: #ff75c5;
+$bgColor: #00521b;
 
 // General
 // --------------------------
@@ -101,28 +100,7 @@ a:hover {
 // Travel
 // --------------------------
 
-.travelBox {
-  height: calc(100vh - 118px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.travelBox h1 {
-  padding: 10px;
-}
-
-.osobisteBox {
-  height: 80vh;
-}
-
-.osobisteBox ul {
-  list-style-type: none;
-}
-
-.osobisteBox input {
-  margin: 20px 10px;
-}
+@import "./components/styles/zoom.scss";
 
 // Bootstrap
 // --------------------------

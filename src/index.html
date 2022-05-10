@@ -11,9 +11,15 @@
     <nav
       class="navbar text-light bg-grey p-3 d-flex justify-content-space-between align-items-center"
     >
-      <div class="search">
+      <div class="searchBox">
         Wyszukaj kraj:
-        <input class="searchingBar" type="text" />
+        <div class="searching">
+          <input class="searchingBar" maxlength="15"></input>
+          <ul class="suggestions"></ul>
+          <span style="display: none" tabindex="0">X</span>
+          <!-- <input class="searchingBar" type="text" /> -->
+         
+        </div>
       </div>
       <div class="login">
         <a href="logowanie.html">Zaloguj się</a> /

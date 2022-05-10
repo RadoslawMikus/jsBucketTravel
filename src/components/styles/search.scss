@@ -1,5 +1,66 @@
 .searchingBar {
   border-radius: 5px;
   border: 0;
+  padding: 3px 10px;
+  margin-left: 10px;
+  width: 200px;
   height: 30px;
+  resize: none;
+}
+
+.searching {
+  position: relative;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+}
+
+.suggestions {
+  background-color: rgb(245, 245, 245);
+  position: absolute;
+  margin-left: 10px;
+  z-index: 3;
+  width: 200px;
+  top: 30px;
+  border-radius: 0 0 5px 5px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.suggestions a {
+  color: rgb(112, 112, 112) !important;
+  text-decoration: none;
+  display: block;
+}
+
+.bar {
+  margin: 3px 0;
+  color: rgb(150, 150, 150);
+}
+
+.bar:last-of-type {
+  display: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.singleSuggestion {
+  // padding: 4px 10px;
+  padding: 4px 10px;
+}
+
+.searching span {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  color: rgb(150, 150, 150);
+  cursor: pointer;
 }

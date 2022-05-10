@@ -3,7 +3,7 @@
 @import "./components/styles/modal.scss";
 @import "./components/styles/zoom.scss";
 
-$bgColor: #202020;
+$bgColor: #af3131;
 
 // General
 // --------------------------
@@ -43,6 +43,14 @@ a:hover {
 .section:hover {
   width: 35%;
   cursor: pointer;
+}
+
+.section:first-of-type {
+  border-left: 0;
+}
+
+.section:last-of-type {
+  border-right: 0;
 }
 
 .disabled {

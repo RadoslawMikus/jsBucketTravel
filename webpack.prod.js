@@ -69,6 +69,17 @@ module.exports = merge(common, {
       }),
 
       new HtmlWebpackPlugin({
+        template: "./src/osobiste.html",
+        filename: "osobiste.html",
+        inject: "body",
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          removeComments: true,
+        },
+      }),
+
+      new HtmlWebpackPlugin({
         template: "./src/podroze.html",
         filename: "podroze.html",
         inject: "body",

@@ -1,7 +1,7 @@
-// LIST OF QUESTIONS
+// LIST OF travelQuestions
 // ------------------------------
 
-const questions = {
+const travelQuestions = {
   0: {
     id: 0,
     content: "Czy lubisz kebsa?",
@@ -41,15 +41,14 @@ const questions = {
 
 // ARRAY DECLARATION
 // ------------------------------
-let travelListArr = ["0", "3", "1", "5"];
-console.log(travelListArr);
+let travelListArr = [];
 
 // CREATING <LI> ELEMENTS WITH CHECKBOX AND QUESTION
 // ------------------------------
 const wholeList = document.querySelector(".osobisteBox ul");
 
-for (let i = 0; i < Object.keys(questions).length; i++) {
-  wholeList.innerHTML += `<li><input type="checkbox" id="${questions[i].id}"><span>${questions[i].content}</span></li>`;
+for (let i = 0; i < Object.keys(travelQuestions).length; i++) {
+  wholeList.innerHTML += `<li><input type="checkbox" id="${travelQuestions[i].id}"><span>${travelQuestions[i].content}</span></li>`;
 }
 
 // ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
@@ -71,7 +70,8 @@ const isChecked = function (e) {
     allImputs[e.target.id].setAttribute("checked", "checked");
   }
 
-  console.log(travelListArr);
+  document.querySelector(".quantity").innerHTML =
+    "Liczba pozycji na liście: " + travelListArr.length;
 };
 
 allImputs.forEach(function (singleImput) {
@@ -86,11 +86,14 @@ allImputs.forEach(function (singleImput) {
   }
 });
 
-// SHOW QUESTIONS THAT ARE PRESENT IN THE ARRAY
+// SHOW travelQuestions THAT ARE PRESENT IN THE ARRAY
 // ------------------------------
 
-for (let i = 0; i < Object.keys(questions).length; i++) {
-  if (travelListArr.includes(questions[i].id.toString())) {
-    console.log(questions[i].content);
+document.querySelector(".quantity").addEventListener("click", () => {
+  console.log("Travel: ");
+  for (let i = 0; i < Object.keys(travelQuestions).length; i++) {
+    if (travelListArr.includes(travelQuestions[i].id.toString())) {
+      console.log(travelQuestions[i].content);
+    }
   }
-}
+});

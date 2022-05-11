@@ -38,13 +38,16 @@ let maxTopOffset = 0,
   maxLeftOffset = 0,
   minLeftOffset = 0;
 export let isPressed = false;
-const bbox = europeMap.getBBox();
+let bbox;
 
 const dragDown = function (e) {
+  let europeMap = document.querySelector(".mapBox svg");
   xBeg = e.clientX;
   yBeg = e.clientY;
 
   isPressed = true;
+  bbox = europeMap.getBBox();
+
 
   document.addEventListener("mousemove", dragMove, false);
   document.addEventListener("mouseup", dragQuit);
@@ -52,6 +55,7 @@ const dragDown = function (e) {
 
 const dragMove = function (e) {
   if (isPressed == true) {
+    console.log(bbox);
     xAft = xBeg - e.clientX;
     yAft = yBeg - e.clientY;
     xBeg = e.clientX;

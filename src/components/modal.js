@@ -13,9 +13,21 @@ const openModal = function (kraj) {
       modalMap.style.display = "flex";
       modalBackground.style.display = "flex";
       modalMap.innerHTML = `<h2>${kraj.getAttribute("name")}</h2>`;
-      console.log(kraj.getAttribute("id") + " " + kraj.getAttribute("name"));
+      // console.log(kraj.getAttribute("id") + " " + kraj.getAttribute("name"));
     });
   }
 };
 
 kraje.forEach(openModal);
+
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("singleSuggestion")) {
+    // console.log(e.target.innerHTML);
+
+    // POBRAĆ NAZWĘ KLIKNIĘTEGO KRAJU
+    // NAMIERZYĆ TEN KRAJ W TABLICY KRAJE
+    // WYWOŁAĆ FUNKCJĘ OPEN MODAL Z ODPOWIEDNIM KRAJEM
+
+    console.log(kraje[0].getAttribute("name"));
+  }
+});

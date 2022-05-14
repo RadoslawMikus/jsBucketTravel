@@ -11,32 +11,35 @@
 
     <div class="navbarComponent"></div>
 
-    <div class="menuComponent container-fluid p-0">
+    <div id="#" class="menuComponent container-fluid p-0">
       <div class="row m-0">
         <div class="cardsBox col-12 d-flex p-0">
           <div id="travel" class="section">
-            <div class="title">Podróże</div>
+            <div class="title">
+              <a href="#podroze">Podróże</a>
+            </div>
           </div>
           <div id="events" class="section">
-            <div class="title text-muted">Wydarzenia</div>
-            <div class="disabled"></div>
+            <div class="title">
+              <a href="#wydarzenia">Wydarzenia</a>
+            </div>
           </div>
           <div id="personal" class="section">
-            <div class="title">Osobiste</div>
+            <div class="title">
+              <a href="#osobiste">Osobiste</a>
+            </div>
           </div>
           <div id="fun" class="section">
-            <div class="title text-muted">Rozrywka</div>
-            <div class="disabled"></div>
+            <div class="title"><a href="#rozrywka">Rozrywka</a></div>
           </div>
           <div id="others" class="section">
-            <div class="title text-muted">Inne</div>
-            <div class="disabled"></div>
+            <div class="title"><a href="#inne">Inne</a></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="travelComponent container-fluid p-0 d-none">
+    <div id="podroze" class="travelComponent container-fluid p-0 d-none">
       <div class="row m-0">
         <div class="travelBox col-12 d-flex p-0">
           <div class="mapBox" style="top: 0">
@@ -293,35 +296,36 @@
       </div>
     </div>
 
-    <div class="wydarzeniaComponent container-fluid p-0 d-none">
+    <div id="wydarzenia" class="wydarzeniaComponent container-fluid d-none">
       <div class="row m-0">
-        <div class="wydarzeniaBox col-12 d-flex p-0">
+        <div class="wydarzeniaBox col-12">
           <h1>Wydarzenia</h1>
           <ul></ul>
         </div>
       </div>
     </div>
 
-    <div class="osobisteComponent container-fluid p-0 d-none">
+    <div id="osobiste" class="osobisteComponent container-fluid d-none">
       <div class="row m-0">
-        <div class="osobisteBox col-12 d-flex p-0">
+        <div class="osobisteBox col-12">
+          <h1>Osobiste</h1>
           <ul></ul>
         </div>
       </div>
     </div>
 
-    <div class="rozrywkaComponent container-fluid p-0 d-none">
+    <div id="rozrywka" class="rozrywkaComponent container-fluid p-0 d-none">
       <div class="row m-0">
-        <div class="rozrywkaBox col-12 d-flex p-0">
+        <div class="rozrywkaBox col-12 p-0">
           <h1>Rozrywka</h1>
           <ul></ul>
         </div>
       </div>
     </div>
 
-    <div class="inneComponent container-fluid p-0 d-none">
+    <div id="inne" class="inneComponent container-fluid p-0 d-none">
       <div class="row m-0">
-        <div class="inneBox col-12 d-flex p-0">
+        <div class="inneBox col-12 p-0">
           <h1>Inne</h1>
           <ul></ul>
         </div>
@@ -329,7 +333,5 @@
     </div>
 
     <div class="footerComponent"></div>
-
-    <!-- <img src="../assets/images/sampleImage.jpg" alt="" /> -->
   </body>
 </html>

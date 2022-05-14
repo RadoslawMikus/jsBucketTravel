@@ -1,99 +1,138 @@
-// LIST OF travelQuestions
-// ------------------------------
-
-const travelQuestions = {
-  0: {
-    id: 0,
-    content: "Czy lubisz kebsa?",
-    status: "checked",
-  },
-
-  1: {
-    id: 1,
-    content: "A w Krakowie, na brackiej pada pinionc",
-    status: "unchecked",
-  },
-
-  2: {
-    id: 2,
-    content: "Paszoł, bo psem poszczuję",
-    status: "unchecked",
-  },
-
-  3: {
-    id: 3,
-    content: "Bo bo bo bo, bi bi bi bi",
-    status: "checked",
-  },
-
-  4: {
-    id: 4,
-    content: "Po co Ci kapusta?",
-    status: "unchecked",
-  },
-
-  5: {
-    id: 5,
-    content: "Element piąty",
-    status: "unchecked",
-  },
-};
-
 // ARRAY DECLARATION
 // ------------------------------
-let travelListArr = [];
+let questions;
+let eventsArr = [];
+let personalArr = [];
+let enterntainmentArr = [];
+let othersArr = [];
+let fullArr = [];
+let eventsMemory = JSON.parse(sessionStorage.getItem("eventsSessionArr"));
+let otherMemory = JSON.parse(sessionStorage.getItem("otherSessionArr"));
+let entMemory = JSON.parse(sessionStorage.getItem("entSessionArr"));
+let personalMemory = JSON.parse(sessionStorage.getItem("personalSessionArr"));
 
-// CREATING <LI> ELEMENTS WITH CHECKBOX AND QUESTION
-// ------------------------------
-const wholeList = document.querySelector(".osobisteBox ul");
-
-for (let i = 0; i < Object.keys(travelQuestions).length; i++) {
-  wholeList.innerHTML += `<li><input type="checkbox" id="${travelQuestions[i].id}"><span>${travelQuestions[i].content}</span></li>`;
+if (eventsMemory !== null) {
+  eventsArr = eventsMemory;
 }
 
-// ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
-// REMOVE FROM ARRAY AND REMOVE PROPERTY CHECKED
-// ------------------------------
+if (otherMemory !== null) {
+  othersArr = otherMemory;
+}
 
-const allImputs = document.querySelectorAll(".osobisteBox ul li input");
+if (entMemory !== null) {
+  enterntainmentArr = entMemory;
+}
 
-const isChecked = function (e) {
-  if (e.target.getAttribute("checked")) {
-    for (i = 0; i < travelListArr.length; i++) {
-      if (travelListArr[i] === e.target.id) {
-        travelListArr.splice(i, 1);
-      }
-    }
-    allImputs[e.target.id].removeAttribute("checked");
-  } else {
-    travelListArr.push(e.target.id);
-    allImputs[e.target.id].setAttribute("checked", "checked");
-  }
+if (personalMemory !== null) {
+  personalArr = personalMemory;
+}
 
-  document.querySelector(".quantity").innerHTML =
-    "Liczba pozycji na liście: " + travelListArr.length;
-};
+fullArr = eventsArr.concat(personalArr, enterntainmentArr, othersArr).length;
+document.querySelector("#numberList").innerHTML = fullArr;
 
-allImputs.forEach(function (singleImput) {
-  singleImput.addEventListener("click", isChecked);
+const readQuestionsJson = async function () {
+  const questionsJSON = require("../../assets/questions.json");
+  const responseQuestions = await fetch(questionsJSON);
+  const dataQuestions = await responseQuestions.json();
+  questions = dataQuestions;
 
-  // SET ATTRIBUTE CHECKED IF ID IS IN THE ARRAY
+  // CREATING <LI> ELEMENTS WITH CHECKBOX AND QUESTION
   // ------------------------------
 
-  if (travelListArr.includes(singleImput.id)) {
-    singleImput.setAttribute("checked", "checked");
-  } else {
-  }
-});
+  const generateListItems = function (boxName, className, sectionName) {
+    const listBox = document.querySelector(`.${boxName} ul`);
 
-// SHOW travelQuestions THAT ARE PRESENT IN THE ARRAY
-// ------------------------------
-
-document.querySelector(".quantity").addEventListener("click", () => {
-  console.log("Travel: ");
-  for (let i = 0; i < Object.keys(travelQuestions).length; i++) {
-    if (travelListArr.includes(travelQuestions[i].id.toString())) {
-      console.log(travelQuestions[i].content);
+    for (let i = 0; i < Object.keys(questions[sectionName]).length; i++) {
+      listBox.innerHTML += `<li><input class="${className}" type="checkbox" id="${i}"><span>
+      ${questions[sectionName][i]}
+      </span></li>`;
     }
-  }
-});
+  };
+
+  generateListItems("wydarzeniaBox", "eventInput", "Wydarzenia");
+  generateListItems("osobisteBox", "personalInput", "Osobiste");
+  generateListItems("rozrywkaBox", "entertainmentInput", "Rozrywka");
+  generateListItems("inneBox", "othersInput", "Inne");
+
+  // ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
+  // REMOVE FROM ARRAY AND REMOVE PROPERTY CHECKED
+  // ------------------------------
+
+  const allPersonalInputs = document.querySelectorAll(".osobisteBox input");
+  const allEventsInputs = document.querySelectorAll(".wydarzeniaBox input");
+  const allEntertainmentInputs =
+    document.querySelectorAll(".rozrywkaBox input");
+  const allOtherInputs = document.querySelectorAll(".inneBox input");
+
+  // CHECKED IF IN ARRAY
+  // ------------------------------
+  //NAMIERZYĆ WSZYSTKIE ID ZAWARTE W TABLICY
+  //PRZECZYTAĆ WSZYSTKIE INPUTY I SPRAWDZIĆ, CZY ID INPUTA ZNAJDUJE SIĘ W TABLICY
+  const checkedIfInArray = (inputName, arrName) => {
+    inputName.forEach((input) => {
+      if (arrName.includes(input.id)) {
+        input.setAttribute("checked", "checked");
+      }
+    });
+  };
+  checkedIfInArray(allPersonalInputs, personalArr);
+  checkedIfInArray(allEventsInputs, eventsArr);
+  checkedIfInArray(allEntertainmentInputs, enterntainmentArr);
+  checkedIfInArray(allOtherInputs, othersArr);
+
+  // ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
+  // REMOVE FROM ARRAY AND REMOVE PROPERTY CHECKED
+  // ------------------------------
+
+  const addEvent = (inputName, arrName, sessionName) => {
+    inputName.forEach((singleInput) =>
+      singleInput.addEventListener("click", (e) => {
+        if (e.target.getAttribute("checked")) {
+          e.target.removeAttribute("checked");
+          for (i = 0; i < arrName.length; i++) {
+            if (arrName[i] === e.target.id) {
+              arrName.splice(i, 1);
+            }
+          }
+        } else {
+          e.target.setAttribute("checked", "checked");
+          arrName.push(e.target.id);
+        }
+        sessionStorage.setItem(sessionName, JSON.stringify(arrName));
+
+        fullArr = eventsArr.concat(
+          personalArr,
+          enterntainmentArr,
+          othersArr
+        ).length;
+        document.querySelector("#numberList").innerHTML = fullArr;
+        console.log(
+          `Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr}`
+        );
+      })
+    );
+  };
+
+  addEvent(allPersonalInputs, personalArr, "personalSessionArr");
+  addEvent(allEntertainmentInputs, enterntainmentArr, "entSessionArr");
+  addEvent(allOtherInputs, othersArr, "otherSessionArr");
+  addEvent(allEventsInputs, eventsArr, "eventsSessionArr");
+
+  // SHOW QUESTIONS THAT ARE PRESENT IN EVERY ARRAY
+  // ------------------------------
+
+  document.querySelector(".quantity").addEventListener("click", () => {
+    const showAllSelected = function (secName, arrName) {
+      console.log(`${secName}:`);
+      for (let i = 0; i < arrName.length; i++) {
+        console.log(questions[secName][arrName[i]]);
+      }
+    };
+    showAllSelected("Wydarzenia", eventsArr);
+    showAllSelected("Rozrywka", enterntainmentArr);
+    showAllSelected("Osobiste", personalArr);
+    showAllSelected("Inne", othersArr);
+  });
+};
+
+readQuestionsJson();

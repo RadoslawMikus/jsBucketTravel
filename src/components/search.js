@@ -50,7 +50,7 @@ const readJson = async function () {
     // -------------------------
 
     arrCountriesSearch.forEach(function (item) {
-      suggestions.innerHTML += `<li><a class= "singleSuggestion" style="" href = "#">${item}</a></li>`;
+      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#${item}"">${item}</a></li>`;
     });
 
     // RESET IF EMPTY
@@ -116,7 +116,7 @@ const focusPopular = function (event) {
       "Hiszpania",
     ];
     arrCountriesSearch.forEach(function (item) {
-      suggestions.innerHTML += `<li><a class= "singleSuggestion" style="" href = "#">${item}</a></li><hr class = "bar">`;
+      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#${item}">${item}</a></li><hr class = "bar">`;
     });
     okienko.style.borderRadius = "5px 5px 0 0";
   }

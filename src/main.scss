@@ -39,6 +39,10 @@ a:hover {
   position: relative;
 }
 
+.section a{
+  text-decoration: none;
+}
+
 .section:hover {
   width: 35%;
   cursor: pointer;
@@ -111,15 +115,19 @@ a:hover {
   padding: 10px;
 }
 
-.osobisteComponent, .inneComponent, .rozrywkaComponent, .wydarzeniaComponent {
-  height: calc(100vh - 112px);
+.osobisteBox h1, .wydarzeniaBox h1, .rozrywkaBox h1, .inneBox h1{
+  display: block;
 }
 
-.osobisteBox ul {
+.osobisteComponent, .inneComponent, .rozrywkaComponent, .wydarzeniaComponent {
+  // height: calc(100vh - 112px);
+}
+
+.osobisteBox ul, .rozrywkaBox ul, .wydarzeniaBox ul, .inneBox ul {
   list-style-type: none;
 }
 
-.osobisteBox input {
+.osobisteBox input, .rozrywkaBox input, .wydarzeniaBox input, .inneBox input {
   margin: 20px 10px;
 }
 
@@ -129,3 +137,12 @@ a:hover {
 // --------------------------
 
 @import "~bootstrap/scss/bootstrap";
+
+.comeBack {
+  cursor: pointer;
+}
+
+#wydarzenia, #osobiste {
+  padding-top: 56px;
+  margin-top: -56px;
+}

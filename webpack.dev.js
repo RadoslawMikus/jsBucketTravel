@@ -19,10 +19,6 @@ module.exports = merge(common, {
       import: "./src/components/login.js",
       filename: "components/[name].[hash].js",
     },
-    modal: {
-      import: "./src/components/modal.js",
-      filename: "components/[name].[hash].js",
-    },
     search: {
       import: "./src/components/search.js",
       filename: "components/[name].[hash].js",

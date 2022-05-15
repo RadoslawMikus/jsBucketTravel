@@ -1,3 +1,5 @@
+import { travelArr, travelMemory } from "./modal";
+
 // ARRAY DECLARATION
 // ------------------------------
 let questions;
@@ -5,11 +7,16 @@ let eventsArr = [];
 let personalArr = [];
 let enterntainmentArr = [];
 let othersArr = [];
-let fullArr = [];
+export let fullArr = [];
 let eventsMemory = JSON.parse(sessionStorage.getItem("eventsSessionArr"));
 let otherMemory = JSON.parse(sessionStorage.getItem("otherSessionArr"));
 let entMemory = JSON.parse(sessionStorage.getItem("entSessionArr"));
 let personalMemory = JSON.parse(sessionStorage.getItem("personalSessionArr"));
+
+window.addEventListener("click", () => {
+  console.log("Ta zmienna jest czytana z pliku list: " + travelArr);
+  console.log("Ta zmienna jest czytana z pamięci pliku list: " + travelMemory);
+});
 
 if (eventsMemory !== null) {
   eventsArr = eventsMemory;

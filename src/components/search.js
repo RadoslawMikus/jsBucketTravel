@@ -35,7 +35,7 @@ const readJson = async function () {
     } else {
       xClosing.style.display = "none";
     }
-    for (i = 0; i < countries.Countries.length; i++) {
+    for (let i = 0; i < countries.Countries.length; i++) {
       if (
         countries.Countries[i].name
           .toLowerCase()

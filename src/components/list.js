@@ -3,19 +3,27 @@ import { travelArr, travelMemory } from "./modal";
 // ARRAY DECLARATION
 // ------------------------------
 let questions;
-let eventsArr = [];
-let personalArr = [];
-let enterntainmentArr = [];
-let othersArr = [];
-export let fullArr = [];
+export let eventsArr = [];
+export let personalArr = [];
+export let enterntainmentArr = [];
+export let othersArr = [];
+export let fullArr = {
+  superArray: eventsArr.concat(
+    personalArr,
+    enterntainmentArr,
+    othersArr,
+    travelArr
+  ).length,
+};
 let eventsMemory = JSON.parse(sessionStorage.getItem("eventsSessionArr"));
 let otherMemory = JSON.parse(sessionStorage.getItem("otherSessionArr"));
 let entMemory = JSON.parse(sessionStorage.getItem("entSessionArr"));
 let personalMemory = JSON.parse(sessionStorage.getItem("personalSessionArr"));
 
 window.addEventListener("click", () => {
-  console.log("Ta zmienna jest czytana z pliku list: " + travelArr);
-  console.log("Ta zmienna jest czytana z pamięci pliku list: " + travelMemory);
+  console.log(
+    `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr.superArray}`
+  );
 });
 
 if (eventsMemory !== null) {
@@ -34,8 +42,13 @@ if (personalMemory !== null) {
   personalArr = personalMemory;
 }
 
-fullArr = eventsArr.concat(personalArr, enterntainmentArr, othersArr).length;
-document.querySelector("#numberList").innerHTML = fullArr;
+fullArr.superArray = eventsArr.concat(
+  personalArr,
+  enterntainmentArr,
+  othersArr,
+  travelArr
+).length;
+document.querySelector("#numberList").innerHTML = fullArr.superArray;
 
 const readQuestionsJson = async function () {
   const questionsJSON = require("../../assets/questions.json");
@@ -96,7 +109,7 @@ const readQuestionsJson = async function () {
       singleInput.addEventListener("click", (e) => {
         if (e.target.getAttribute("checked")) {
           e.target.removeAttribute("checked");
-          for (i = 0; i < arrName.length; i++) {
+          for (let i = 0; i < arrName.length; i++) {
             if (arrName[i] === e.target.id) {
               arrName.splice(i, 1);
             }
@@ -105,16 +118,17 @@ const readQuestionsJson = async function () {
           e.target.setAttribute("checked", "checked");
           arrName.push(e.target.id);
         }
-        sessionStorage.setItem(sessionName, JSON.stringify(arrName));
-
-        fullArr = eventsArr.concat(
+        fullArr.superArray = eventsArr.concat(
           personalArr,
           enterntainmentArr,
-          othersArr
+          othersArr,
+          travelArr
         ).length;
-        document.querySelector("#numberList").innerHTML = fullArr;
+        sessionStorage.setItem(sessionName, JSON.stringify(arrName));
+
+        document.querySelector("#numberList").innerHTML = fullArr.superArray;
         console.log(
-          `Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr}`
+          `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr}`
         );
       })
     );

@@ -1,5 +1,11 @@
 import { isPressed } from "./zoom";
-import { fullArr } from "./list";
+import {
+  eventsArr,
+  othersArr,
+  enterntainmentArr,
+  personalArr,
+  fullArr,
+} from "./list";
 const kraje = document.querySelectorAll(".travelBox svg path");
 const modalBackground = document.createElement("div");
 const modalMap = document.createElement("div");
@@ -15,6 +21,12 @@ export let travelMemory = JSON.parse(
 if (travelMemory !== null) {
   travelArr = travelMemory;
 }
+
+window.addEventListener("click", () => {
+  console.log(
+    `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr.superArray}`
+  );
+});
 
 //STWORZYĆ SPAN z X w środku DONE
 //NADAĆ MU KLASĘ closingBtn DONE
@@ -68,10 +80,8 @@ const openIt = function (kraj) {
   travelSelect.appendChild(travelSelectBtn);
 
   if (travelArr.includes(kraj.getAttribute("id"))) {
-    console.log("yep");
     travelSelectBtn.setAttribute("checked", "checked");
   } else {
-    console.log("nope");
     travelSelectBtn.removeAttribute("checked");
   }
 
@@ -87,7 +97,13 @@ const openIt = function (kraj) {
       travelSelectBtn.setAttribute("checked", "checked");
       travelArr.push(kraj.getAttribute("id"));
     }
-    console.log(travelArr);
+    fullArr.superArray = eventsArr.concat(
+      personalArr,
+      enterntainmentArr,
+      othersArr,
+      travelArr
+    ).length;
+    document.querySelector("#numberList").innerHTML = fullArr.superArray;
     sessionStorage.setItem("travelSessionArr", JSON.stringify(travelArr));
   });
 };

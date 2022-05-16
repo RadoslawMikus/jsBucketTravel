@@ -48,14 +48,12 @@ const dragDown = function (e) {
   isPressed = true;
   bbox = europeMap.getBBox();
 
-
   document.addEventListener("mousemove", dragMove, false);
   document.addEventListener("mouseup", dragQuit);
 };
 
 const dragMove = function (e) {
   if (isPressed == true) {
-    console.log(bbox);
     xAft = xBeg - e.clientX;
     yAft = yBeg - e.clientY;
     xBeg = e.clientX;

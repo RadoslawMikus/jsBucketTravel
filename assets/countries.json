@@ -10,7 +10,8 @@
       "info2": "Wiele wiosek jest całkowicie odcinanych od świata na pół roku z powodu zalegającego śniegu.",
       "currency": { "code": "ALL", "name": "Albański lew", "symbol": "L" },
       "language": { "code": "sq", "name": "Albański" },
-      "flag": "https://flagcdn.com/al.svg"
+      "flag": "https://flagcdn.com/al.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Coat_of_arms_of_Albania.svg"
     },
     {
       "name": "Andora",
@@ -22,7 +23,8 @@
       "info2": "Andora jest około 670 razy mniejsza od Polski .",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "ca", "name": "Kataloński" },
-      "flag": "https://flagcdn.com/ad.svg"
+      "flag": "https://flagcdn.com/ad.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Coat_of_arms_of_Andorra.svg"
     },
     {
       "name": "Austria",
@@ -34,7 +36,8 @@
       "info2": "W Salzburgu znajduje się najstarsza na świecie, wciąż działająca karczma, powstała w 803 roku. Jest to zarazem najdłużej funkcjonująca firma.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "de", "name": "Niemiecki" },
-      "flag": "https://flagcdn.com/at.svg"
+      "flag": "https://flagcdn.com/at.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Austria_Bundesadler.svg"
     },
     {
       "name": "Białoruś",
@@ -50,7 +53,8 @@
         "symbol": "Br"
       },
       "language": { "code": "be", "name": "Białoruski" },
-      "flag": "https://flagcdn.com/by.svg"
+      "flag": "https://flagcdn.com/by.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/4/48/Coat_of_arms_of_Belarus_%282020–present%29.svg"
     },
     {
       "name": "Belgia",
@@ -62,7 +66,8 @@
       "info2": "Jest tam ponad 800 rodzajów piwa.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "fr", "name": "Francuski" },
-      "flag": "https://flagcdn.com/be.svg"
+      "flag": "https://flagcdn.com/be.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Great_coat_of_arms_of_Belgium.svg/800px-Great_coat_of_arms_of_Belgium.svg.png"
     },
     {
       "name": "Bośnia i Hercegowina",
@@ -78,7 +83,8 @@
         "symbol": ""
       },
       "language": { "code": "bs", "name": "Bośniański" },
-      "flag": "https://flagcdn.com/ba.svg"
+      "flag": "https://flagcdn.com/ba.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Coat_of_arms_of_Bosnia_and_Herzegovina.svg"
     },
     {
       "name": "Bułgaria",
@@ -90,7 +96,8 @@
       "info2": "W Warnie znaleziony został najstarszy na świecie złoty skarb liczący około 6 000 lat.",
       "currency": { "code": "BGN", "name": "Bułgarski lew", "symbol": "лв" },
       "language": { "code": "bg", "name": "Bułgarski" },
-      "flag": "https://flagcdn.com/bg.svg"
+      "flag": "https://flagcdn.com/bg.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/2/24/Coat_of_arms_of_Bulgaria.svg"
     },
     {
       "name": "Chorwacja",
@@ -102,7 +109,8 @@
       "info2": "W kraju tym znajduje się najmniejsze na świecie miasto o nazwie Hum mające 14 mieszkańców.",
       "currency": { "code": "HRK", "name": "Chorwacka kuna", "symbol": "kn" },
       "language": { "code": "hr", "name": "Chorwacki" },
-      "flag": "https://flagcdn.com/hr.svg"
+      "flag": "https://flagcdn.com/hr.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Coat_of_arms_of_Croatia.svg"
     },
     {
       "name": "Cypr",
@@ -114,7 +122,8 @@
       "info2": "Słońce świeci tam ponad 320 dni w roku.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "tr", "name": "Turecki" },
-      "flag": "https://flagcdn.com/cy.svg"
+      "flag": "https://flagcdn.com/cy.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/d/da/Coat_of_arms_of_Cyprus_%282006%29.svg"
     },
     {
       "name": "Czechy",
@@ -126,7 +135,8 @@
       "info2": "Zachowało się ponad 2 000 zamków.",
       "currency": { "code": "CZK", "name": "Czeska korona", "symbol": "Kč" },
       "language": { "code": "cs", "name": "Czeski" },
-      "flag": "https://flagcdn.com/cz.svg"
+      "flag": "https://flagcdn.com/cz.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/2/20/Small_coat_of_arms_of_the_Czech_Republic.svg"
     },
     {
       "name": "Dania",
@@ -138,7 +148,8 @@
       "info2": "Duńczycy uwielbiają ciasteczka. Można je kupić w większości sklepów.",
       "currency": { "code": "DKK", "name": "Duńska korona", "symbol": "kr" },
       "language": { "code": "da", "name": "Duński" },
-      "flag": "https://flagcdn.com/dk.svg"
+      "flag": "https://flagcdn.com/dk.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Royal_coat_of_arms_of_Denmark.svg"
     },
     {
       "name": "Estonia",
@@ -150,7 +161,8 @@
       "info2": "Estonia jest najmniej religijnym krajem na świecie.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "et", "name": "Estoński" },
-      "flag": "https://flagcdn.com/ee.svg"
+      "flag": "https://flagcdn.com/ee.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Coat_of_arms_of_Estonia.svg"
     },
     {
       "name": "Finlandia",
@@ -167,7 +179,8 @@
         "name": "Fiński",
         "nativeName": "suomi"
       },
-      "flag": "https://flagcdn.com/fi.svg"
+      "flag": "https://flagcdn.com/fi.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Coat_of_arms_of_Finland.svg"
     },
     {
       "name": "Francja",
@@ -179,7 +192,8 @@
       "info2": "Francja najdłuższą linię graniczną ma z Brazylią",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "fr", "name": "Francuski" },
-      "flag": "https://flagcdn.com/fr.svg"
+      "flag": "https://flagcdn.com/fr.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/3/36/Arms_of_the_French_Republic.svg"
     },
 
     {
@@ -192,7 +206,8 @@
       "info2": " W kraju tym jest najwięcej na świecie ogrodów zoologicznych (ponad 400).",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "de", "name": "Niemiecki" },
-      "flag": "https://flagcdn.com/de.svg"
+      "flag": "https://flagcdn.com/de.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/d/da/Coat_of_arms_of_Germany.svg"
     },
     {
       "name": "Gibraltar",
@@ -204,7 +219,8 @@
       "info2": "Gibraltar został przekazany w 1713 roku na wieczność Wielkiej Brytanii przez Hiszpanię",
       "currency": { "code": "GIP", "name": "Gibraltarski funt", "symbol": "£" },
       "language": { "code": "en", "name": "Angielski" },
-      "flag": "https://flagcdn.com/gi.svg"
+      "flag": "https://flagcdn.com/gi.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/4/40/Coat_of_arms_of_Gibraltar1.svg"
     },
     {
       "name": "Grecja",
@@ -216,7 +232,8 @@
       "info2": "W Grecji jest ponad 2 000 wysp.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "el", "name": "Grecki" },
-      "flag": "https://flagcdn.com/gr.svg"
+      "flag": "https://flagcdn.com/gr.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Coat_of_arms_of_Greece.svg"
     },
     {
       "name": "Węgry",
@@ -228,7 +245,8 @@
       "info2": "W Budapeszcie znajduje się trzeci co do wielkości budynek parlamentu na świecie.",
       "currency": { "code": "HUF", "name": "Węgierski forint", "symbol": "Ft" },
       "language": { "code": "hu", "name": "Węgierski" },
-      "flag": "https://flagcdn.com/hu.svg"
+      "flag": "https://flagcdn.com/hu.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/3/34/Coat_of_arms_of_Hungary.svg"
     },
     {
       "name": "Islandia",
@@ -240,7 +258,8 @@
       "info2": "Język islandzki został praktycznie niezmieniony przez ostatnie 1000 lat.",
       "currency": { "code": "ISK", "name": "Islandzka korona", "symbol": "kr" },
       "language": { "code": "is", "name": "Islandzki" },
-      "flag": "https://flagcdn.com/is.svg"
+      "flag": "https://flagcdn.com/is.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/9/90/Coat_of_arms_of_Iceland.svg"
     },
     {
       "name": "Irlandia",
@@ -252,7 +271,8 @@
       "info2": "Najstarszy pub, Sean’s Bar powstał ponad 900 lat temu.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "ga", "name": "Irlandzki" },
-      "flag": "https://flagcdn.com/ie.svg"
+      "flag": "https://flagcdn.com/ie.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Coat_of_arms_of_Ireland.svg"
     },
 
     {
@@ -265,7 +285,8 @@
       "info2": "Wszystkie włoskie słowa kończą się samogłoską.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "it", "name": "Włoski" },
-      "flag": "https://flagcdn.com/it.svg"
+      "flag": "https://flagcdn.com/it.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/0/00/Emblem_of_Italy.svg"
     },
     {
       "name": "Łotwa",
@@ -277,7 +298,8 @@
       "info2": "Ryga jest jedynym miastem w Europie, w którym znajduje się pięć różnych wyznaniowo kościołów.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "lv", "name": "Łotewski" },
-      "flag": "https://flagcdn.com/lv.svg"
+      "flag": "https://flagcdn.com/lv.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Latvijas_Republikas_papildinātais_mazais_ģerbonis.svg"
     },
     {
       "name": "Liechtenstein",
@@ -293,7 +315,8 @@
         "symbol": "Fr"
       },
       "language": { "code": "de", "name": "Niemiecki" },
-      "flag": "https://flagcdn.com/li.svg"
+      "flag": "https://flagcdn.com/li.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Coat_of_arms_of_Liechtenstein.svg"
     },
     {
       "name": "Litwa",
@@ -305,7 +328,8 @@
       "info2": "Litwini, jako pierwsi na świecie wymyślił sposób otrzymania wódki ze zbóż.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "lt", "name": "Litewski" },
-      "flag": "https://flagcdn.com/lt.svg"
+      "flag": "https://flagcdn.com/lt.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Coat_of_arms_of_Lithuania.svg"
     },
     {
       "name": "Luksemburg",
@@ -317,7 +341,8 @@
       "info2": "W Luksemburgu znajduje się ponad 150 banków.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "fr", "name": "Francuski" },
-      "flag": "https://flagcdn.com/lu.svg"
+      "flag": "https://flagcdn.com/lu.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/5/55/Lesser_CoA_luxembourg.svg"
     },
     {
       "name": "Macedonia Północna",
@@ -333,7 +358,8 @@
         "symbol": "ден"
       },
       "language": { "code": "mk", "name": "Macedoński" },
-      "flag": "https://flagcdn.com/mk.svg"
+      "flag": "https://flagcdn.com/mk.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Coat_of_arms_of_North_Macedonia.svg"
     },
     {
       "name": "Malta",
@@ -345,7 +371,8 @@
       "info2": "Chodniki używane są do jazdy, oraz parkowania samochodami. Piesi muszą uważać.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "mt", "name": "Maltański" },
-      "flag": "https://flagcdn.com/mt.svg"
+      "flag": "https://flagcdn.com/mt.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Coat_of_arms_of_Malta.svg"
     },
     {
       "name": "Mołdawia",
@@ -357,7 +384,8 @@
       "info2": "W Criva znajduje się jedna z największych jaskiń na świecie.",
       "currency": { "code": "MDL", "name": "Mołdawski lew", "symbol": "L" },
       "language": { "code": "ro", "name": "Rumuński" },
-      "flag": "https://flagcdn.com/md.svg"
+      "flag": "https://flagcdn.com/md.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Coat_of_arms_of_Moldova.svg"
     },
     {
       "name": "Monako",
@@ -369,7 +397,8 @@
       "info2": "Jest to drugie najmniejsze państwo na świecie. Przejście w najszerszym punkcie zajmuje niecałą godzinę spacerkiem.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "fr", "name": "Francuski" },
-      "flag": "https://flagcdn.com/mc.svg"
+      "flag": "https://flagcdn.com/mc.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Coat_of_arms_of_Monaco.svg"
     },
     {
       "name": "Czarnogóra",
@@ -381,7 +410,8 @@
       "info2": "Najwyższym szczytem jest Zla Kolata, 2534 m n.p.m.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "sr", "name": "Serbski" },
-      "flag": "https://flagcdn.com/me.svg"
+      "flag": "https://flagcdn.com/me.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/2/23/Coat_of_arms_of_Montenegro.svg"
     },
     {
       "name": "Holandia",
@@ -393,7 +423,8 @@
       "info2": "Holandia jest największym eksporterem piwa na świecie. W 2001 roku wysłali aż 1,3 miliarda litrów za granice, głównie do USA.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "nl", "name": "Holenderski" },
-      "flag": "https://flagcdn.com/nl.svg"
+      "flag": "https://flagcdn.com/nl.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Royal_coat_of_arms_of_the_Netherlands.svg"
     },
     {
       "name": "Norwegia",
@@ -405,7 +436,8 @@
       "info2": " Najwyższym szczytem jest Galdhopiggen 2469 m n.p.m.",
       "currency": { "code": "NOK", "name": "Norweska korona", "symbol": "kr" },
       "language": { "code": "no", "name": "Norweski" },
-      "flag": "https://flagcdn.com/no.svg"
+      "flag": "https://flagcdn.com/no.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/9/95/Coat_of_arms_of_Norway.svg"
     },
     {
       "name": "Polska",
@@ -417,7 +449,8 @@
       "info2": "We wsi Piątek, 33 km od Łodzi znajduje się dokładny środek Polski.",
       "currency": { "code": "PLN", "name": "Polski złoty", "symbol": "zł" },
       "language": { "code": "pl", "name": "Polski" },
-      "flag": "https://flagcdn.com/pl.svg"
+      "flag": "https://flagcdn.com/pl.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Coat_of_arms_of_Poland-official.svg"
     },
     {
       "name": "Portugalia",
@@ -429,7 +462,8 @@
       "info2": "W Lizbonie znajduje się najstarsza księgarnia na świecie założona w 1732 roku.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "pt", "name": "Portugalski" },
-      "flag": "https://flagcdn.com/pt.svg"
+      "flag": "https://flagcdn.com/pt.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/0/09/Coat_of_arms_of_Portugal_%28Lesser%29.svg"
     },
     {
       "name": "Kosowo",
@@ -441,7 +475,8 @@
       "info2": "Kosowo 10 887 km kw. jest najmniejszym krajem na Bałkanach i ma wielkość zbliżoną do Jamajki lub Libanu.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "sq", "name": "Albański" },
-      "flag": "https://flagcdn.com/xk.svg"
+      "flag": "https://flagcdn.com/xk.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Coat_of_arms_of_Kosovo.svg"
     },
     {
       "name": "Rumunia",
@@ -453,7 +488,8 @@
       "info2": "Najwęższa ulica nazywa się Strada Sforii, ma szerokość około 4 m.",
       "currency": { "code": "RON", "name": "Rumuński lej", "symbol": "lei" },
       "language": { "code": "ro", "name": "Rumuński" },
-      "flag": "https://flagcdn.com/ro.svg"
+      "flag": "https://flagcdn.com/ro.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/7/70/Coat_of_arms_of_Romania.svg"
     },
     {
       "name": "Rosja",
@@ -465,7 +501,8 @@
       "info2": "Każdy, kto posługuje się językiem innym niż rosyjski jest automatycznie podejrzany o szpiegostwo.",
       "currency": { "code": "RUB", "name": "Rosyjski rubel", "symbol": "₽" },
       "language": { "code": "ru", "name": "Rosyjski" },
-      "flag": "https://flagcdn.com/ru.svg"
+      "flag": "https://flagcdn.com/ru.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Coat_of_Arms_of_the_Russian_Federation.svg"
     },
     {
       "name": "San Marino",
@@ -477,7 +514,8 @@
       "info2": "W San Marino nie ma lotniska. ",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "it", "name": "Włoski" },
-      "flag": "https://flagcdn.com/sm.svg"
+      "flag": "https://flagcdn.com/sm.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Coat_of_arms_of_San_Marino.svg"
     },
     {
       "name": "Serbia",
@@ -489,7 +527,8 @@
       "info2": "Serbia jest największym eksporterem malin, jedna trzecia wszystkich sprzedawanych na świecie.",
       "currency": { "code": "RSD", "name": "Serbski dinar", "symbol": "дин." },
       "language": { "code": "sr", "name": "Serbski" },
-      "flag": "https://flagcdn.com/rs.svg"
+      "flag": "https://flagcdn.com/rs.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/9/96/Coat_of_arms_of_Serbia.svg"
     },
     {
       "name": "Słowacja",
@@ -501,7 +540,8 @@
       "info2": "W 1536 Bratysława stała się tymczasowa stolica Królestwa Węgierskiego.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "sk", "name": "Słowacki" },
-      "flag": "https://flagcdn.com/sk.svg"
+      "flag": "https://flagcdn.com/sk.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Coat_of_arms_of_Slovakia.svg"
     },
     {
       "name": "Słowenia",
@@ -513,7 +553,8 @@
       "info2": "Jaskinia Postojna jest najczęściej odwiedzaną jaskinią w Europie.",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "sl", "name": "Słoweński" },
-      "flag": "https://flagcdn.com/si.svg"
+      "flag": "https://flagcdn.com/si.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Coat_of_arms_of_Slovenia.svg"
     },
     {
       "name": "Hiszpania",
@@ -525,7 +566,8 @@
       "info2": "Hiszpanie mają największą liczbę barów ze wszystkich krajów Unii Europejskiej (1 bar na 129 osób).",
       "currency": { "code": "EUR", "name": "Euro", "symbol": "€" },
       "language": { "code": "es", "name": "Hiszpański" },
-      "flag": "https://flagcdn.com/es.svg"
+      "flag": "https://flagcdn.com/es.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/8/85/Escudo_de_España_%28mazonado%29.svg"
     },
     {
       "name": "Szwecja",
@@ -537,7 +579,8 @@
       "info2": "80% dorosłego społeczeństwa pije w weekendy. W tygodniu ciężko na ulicy znaleźć nietrzeźwą osobę.",
       "currency": { "code": "SEK", "name": "Szwedzka korona", "symbol": "kr" },
       "language": { "code": "sv", "name": "Szwedzki" },
-      "flag": "https://flagcdn.com/se.svg"
+      "flag": "https://flagcdn.com/se.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/2/22/Lilla_riksvapnet_-_Riksarkivet_Sverige.png"
     },
     {
       "name": "Szwajcaria",
@@ -553,7 +596,8 @@
         "symbol": "Fr"
       },
       "language": { "code": "de", "name": "Niemiecki" },
-      "flag": "https://flagcdn.com/ch.svg"
+      "flag": "https://flagcdn.com/ch.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Coat_of_Arms_of_Switzerland_%28Pantone%29.svg"
     },
     {
       "name": "Turcja",
@@ -565,7 +609,8 @@
       "info2": "W każdym mieście tureckim jest meczet.",
       "currency": { "code": "TRY", "name": "Turecka lira", "symbol": "" },
       "language": { "code": "tr", "name": "Turecki" },
-      "flag": "https://flagcdn.com/tr.svg"
+      "flag": "https://flagcdn.com/tr.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Emblem_of_the_Republic_of_Turkey.svg"
     },
     {
       "name": "Ukraina",
@@ -577,7 +622,8 @@
       "info2": "Chleb jedzą ze wszystkim. Niektórzy nawet z owocami i różnymi deserami.",
       "currency": { "code": "UAH", "name": "Ukraińska hrywna", "symbol": "₴" },
       "language": { "code": "uk", "name": "Ukraiński" },
-      "flag": "https://flagcdn.com/ua.svg"
+      "flag": "https://flagcdn.com/ua.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"
     },
     {
       "name": "Wielka Brytania",
@@ -589,7 +635,8 @@
       "info2": " Wbrew powszechnemu błędnemu przekonaniu, słynny Big Ben nie jest nazwą zegara, tylko 13 tonowego dzwonu.",
       "currency": { "code": "GBP", "name": "Brytyjski funt", "symbol": "£" },
       "language": { "code": "en", "name": "Angielski" },
-      "flag": "https://flagcdn.com/gb.svg"
+      "flag": "https://flagcdn.com/gb.svg",
+      "emblem": "https://upload.wikimedia.org/wikipedia/commons/9/98/Royal_Coat_of_Arms_of_the_United_Kingdom.svg"
     }
   ]
 }

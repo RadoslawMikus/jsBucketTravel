@@ -44,6 +44,7 @@ const hideAllComponents = function () {
   document.querySelector(".inneComponent").classList.add("d-none");
   document.querySelector(".menuComponent").classList.add("d-none");
   document.querySelector(".searchBox").classList.add("d-none");
+  document.querySelector(".resultsComponent").classList.add("d-none");
 };
 
 const usedHash = window.location.hash;
@@ -67,6 +68,9 @@ window.addEventListener("hashchange", function () {
   } else if (location.hash === "#inne") {
     hideAllComponents();
     document.querySelector(".inneComponent").classList.remove("d-none");
+  } else if (location.hash === "#results") {
+    hideAllComponents();
+    document.querySelector(".resultsComponent").classList.remove("d-none");
   } else if (location.hash === "") {
     hideAllComponents();
     document.querySelector(".menuComponent").classList.remove("d-none");

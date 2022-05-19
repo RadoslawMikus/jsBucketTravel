@@ -7,7 +7,7 @@ $bgColor: #202020;
 // General
 // --------------------------
 
-body{
+body {
   padding-top: 65px;
   background-color: $bgColor;
 }
@@ -39,7 +39,7 @@ a:hover {
 .section {
   border: 1px solid black;
   width: 20%;
-  height: calc(100vh - 112px);
+  height: calc(100vh - 121px);
   transition: 0.5s all ease-in-out;
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ a:hover {
   position: relative;
 }
 
-.section a{
+.section a {
   text-decoration: none;
 }
 
@@ -123,19 +123,28 @@ a:hover {
   padding: 10px;
 }
 
-.osobisteBox h1, .wydarzeniaBox h1, .rozrywkaBox h1, .inneBox h1{
+.osobisteBox h1,
+.wydarzeniaBox h1,
+.rozrywkaBox h1,
+.inneBox h1 {
   display: block;
 }
 
-.osobisteComponent, .inneComponent, .rozrywkaComponent, .wydarzeniaComponent {
-  // height: calc(100vh - 112px);
+.resultsBox {
+  min-height: calc(100vh - 121px);
 }
 
-.osobisteBox ul, .rozrywkaBox ul, .wydarzeniaBox ul, .inneBox ul {
+.osobisteBox ul,
+.rozrywkaBox ul,
+.wydarzeniaBox ul,
+.inneBox ul {
   list-style-type: none;
 }
 
-.osobisteBox input, .rozrywkaBox input, .wydarzeniaBox input, .inneBox input {
+.osobisteBox input,
+.rozrywkaBox input,
+.wydarzeniaBox input,
+.inneBox input {
   margin: 20px 10px;
 }
 
@@ -150,7 +159,8 @@ a:hover {
   cursor: pointer;
 }
 
-#wydarzenia, #osobiste {
+#wydarzenia,
+#osobiste {
   padding-top: 56px;
   margin-top: -56px;
 }

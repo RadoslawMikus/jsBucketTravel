@@ -18,6 +18,13 @@
 .searchBox {
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .searchBox {
+    width: auto;
+  }
 }
 
 .suggestions {
@@ -63,4 +70,14 @@ input:focus {
   right: 10px;
   color: rgb(150, 150, 150);
   cursor: pointer;
+}
+
+.quantity {
+  border: 3px solid white;
+  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

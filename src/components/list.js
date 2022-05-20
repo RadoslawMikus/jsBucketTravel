@@ -1,4 +1,4 @@
-import { kraje, travelArr } from "./modal";
+import { kraje, travelArr, travelMemory } from "./modal";
 import html2pdf from "jspdf-html2canvas";
 
 // ARRAY DECLARATION
@@ -25,6 +25,7 @@ window.addEventListener("click", () => {
   console.log(
     `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr.superArray}`
   );
+  console.log(`Memory personal: ${personalMemory}`);
 });
 
 if (eventsMemory !== null) {
@@ -179,6 +180,31 @@ const readQuestionsJson = async function () {
           if (travelArr.includes(kraje[i].id)) {
             //STWORZYĆ LI
             const liTravel = document.createElement("li");
+
+            liTravel.addEventListener("click", (e) => {
+              for (let i = 0; i < travelArr.length; i++) {
+                if (travelArr[i] === e.target.id) {
+                  travelArr.splice(i, 1);
+                  liTravel.remove();
+                }
+              }
+              fullArr.superArray = eventsArr.concat(
+                personalArr,
+                enterntainmentArr,
+                othersArr,
+                travelArr
+              ).length;
+              document.querySelector("#numberList").innerHTML =
+                fullArr.superArray;
+              sessionStorage.setItem(
+                "travelSessionArr",
+                JSON.stringify(travelArr)
+              );
+              if (travelArr.length === 0) {
+                travelHeader.remove();
+              }
+            });
+
             //DODAĆ KRAJ DO LI
 
             liTravel.innerHTML =
@@ -190,7 +216,12 @@ const readQuestionsJson = async function () {
         }
       }
 
-      const showAllSelected = function (secName, arrName) {
+      const showAllSelected = function (
+        secName,
+        arrName,
+        sessionArr,
+        allImputs
+      ) {
         //STWORZYĆ H1
         const sectionHeader = document.createElement("h1");
         //DODAĆ NAZWĘ TABLICY DO INNER HTML
@@ -211,13 +242,15 @@ const readQuestionsJson = async function () {
             `<button id="${arrName[i]}" data-html2canvas-ignore="true" class="removeFromList">X</button>`;
           //DODAĆ LI DO UL
           sectionUl.appendChild(sectionLi);
+
           sectionLi.addEventListener("click", (e) => {
             for (let i = 0; i < arrName.length; i++) {
               if (arrName[i] === e.target.id) {
                 arrName.splice(i, 1);
+                sectionLi.remove();
+                allImputs[e.target.id].checked = false;
               }
             }
-
             fullArr.superArray = eventsArr.concat(
               personalArr,
               enterntainmentArr,
@@ -226,23 +259,42 @@ const readQuestionsJson = async function () {
             ).length;
             document.querySelector("#numberList").innerHTML =
               fullArr.superArray;
+            sessionStorage.setItem(sessionArr, JSON.stringify(arrName));
+            if (arrName.length === 0) {
+              sectionHeader.remove();
+            }
           });
         }
       };
       if (eventsArr.length > 0) {
-        showAllSelected("Wydarzenia", eventsArr);
+        showAllSelected(
+          "Wydarzenia",
+          eventsArr,
+          "eventsSessionArr",
+          allEventsInputs
+        );
       }
 
       if (enterntainmentArr.length > 0) {
-        showAllSelected("Rozrywka", enterntainmentArr);
+        showAllSelected(
+          "Rozrywka",
+          enterntainmentArr,
+          "entSessionArr",
+          allEntertainmentInputs
+        );
       }
 
       if (personalArr.length > 0) {
-        showAllSelected("Osobiste", personalArr);
+        showAllSelected(
+          "Osobiste",
+          personalArr,
+          "personalSessionArr",
+          allPersonalInputs
+        );
       }
 
       if (othersArr.length > 0) {
-        showAllSelected("Inne", othersArr);
+        showAllSelected("Inne", othersArr, "otherSessionArr", allOtherInputs);
       }
     }
 
@@ -253,7 +305,7 @@ const readQuestionsJson = async function () {
     // const removeFromList = document.querySelectorAll(".removeFromList");
     // removeFromList.forEach((remove) => {
     //   remove.addEventListener("click", (e) => {
-    //     console.log(e.target);
+    //     console.log(allEventsInputs);
     //   });
     // });
   });

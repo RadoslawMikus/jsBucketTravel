@@ -93,6 +93,7 @@ const touchStartFunction = function (e) {
   yBeg = e.changedTouches[0].clientY;
 
   isPressed = true;
+  bbox = europeMap.getBBox();
 
   document.addEventListener("touchmove", touchMoveFunction, true);
   document.addEventListener("touchend", touchEndFunction, true);

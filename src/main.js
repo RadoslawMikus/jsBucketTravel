@@ -45,11 +45,13 @@ const hideAllComponents = function () {
   document.querySelector(".menuComponent").classList.add("d-none");
   document.querySelector(".searchBox").classList.add("d-none");
   document.querySelector(".resultsComponent").classList.add("d-none");
+  document.querySelector(".comeBack").classList.remove("d-none");
 };
 
 const usedHash = window.location.hash;
 window.location.hash = "";
 window.location.hash = usedHash;
+document.querySelector(".comeBack").classList.add("d-none");
 
 window.addEventListener("hashchange", function () {
   if (location.hash === "#podroze") {
@@ -74,5 +76,6 @@ window.addEventListener("hashchange", function () {
   } else if (location.hash === "") {
     hideAllComponents();
     document.querySelector(".menuComponent").classList.remove("d-none");
+    document.querySelector(".comeBack").classList.add("d-none");
   }
 });

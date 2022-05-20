@@ -1,3 +1,4 @@
+@import "./components/styles/colors.scss";
 @import "./components/styles/api.scss";
 @import "./components/styles/list.scss";
 @import "./components/styles/modal.scss";
@@ -6,6 +7,10 @@ $bgColor: #202020;
 
 // General
 // --------------------------
+
+html {
+  background-color: $bgColor;
+}
 
 body {
   padding-top: 65px;
@@ -19,6 +24,7 @@ body {
 a,
 a:hover {
   color: #fff !important;
+  text-decoration: none !important;
 }
 
 // Navbar
@@ -36,10 +42,14 @@ a:hover {
   overflow: hidden;
 }
 
+.cardsBox a {
+  display: contents;
+}
+
 .section {
   border: 1px solid black;
-  width: 20%;
-  height: calc(100vh - 121px);
+  width: 100%;
+  height: 30vh;
   transition: 0.5s all ease-in-out;
   display: flex;
   justify-content: center;
@@ -47,13 +57,29 @@ a:hover {
   position: relative;
 }
 
-.section a {
-  text-decoration: none;
+.section:hover {
+  cursor: pointer;
 }
 
-.section:hover {
-  width: 35%;
-  cursor: pointer;
+@media (min-width: 576px) {
+  .section {
+    width: 20%;
+    height: calc(100vh - 121px);
+  }
+
+  .section:hover {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section:hover {
+    width: 35%;
+  }
+}
+
+.section a {
+  text-decoration: none;
 }
 
 .disabled {
@@ -113,7 +139,7 @@ a:hover {
 // --------------------------
 
 .travelBox {
-  height: calc(100vh - 118px);
+  height: calc(100vh - 123px) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,6 +187,6 @@ a:hover {
 
 #wydarzenia,
 #osobiste {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 65px;
+  margin-top: -65px;
 }

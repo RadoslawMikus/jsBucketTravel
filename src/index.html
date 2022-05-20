@@ -11,30 +11,148 @@
 
     <div class="navbarComponent"></div>
 
+    <div class="loginComponent container-fluid">
+      <div class="loginFormBg"></div>
+      <div class="row">
+        <div class="loginBox col-12">
+          <div class="auth-form">
+            <form class="form" id="login">
+              <h1 class="form-title">Logowanie</h1>
+              <p class="form-message-error"></p>
+              <div class="form-input-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  id="inputLoginEmail"
+                  autofocus
+                  placeholder="Twój email"
+                />
+              </div>
+              <div class="form-input-group">
+                <input
+                  type="password"
+                  class="form-input"
+                  id="inputLoginPass"
+                  autofocus
+                  placeholder="Hasło"
+                />
+                <p class="form-input-error-message"></p>
+              </div>
+              <button class="form-button" id="loginButton" type="button">
+                Zaloguj
+              </button>
+              <p class="form-text">
+                <a id="linkForgotPass" class="form-link" href="#"
+                  >Zapomniałem hasła</a
+                >
+              </p>
+              <p class="form-text">
+                <a
+                  id="linkCreateAccount"
+                  class="form-link"
+                  href="/logowanie.html"
+                  >Nie masz konta? Zarejestruj się!</a
+                >
+              </p>
+            </form>
+            <!-- create account -->
+            <form class="form-hidden form" id="createAccount">
+              <h1 class="form-title">Zarejestruj się</h1>
+              <!-- error -->
+              <p class="form-create-error"></p>
+              <div class="form-input-group">
+                <input
+                  type="text"
+                  id="inputCreateEmail"
+                  class="form-input"
+                  autofocus
+                  placeholder="e-mail"
+                />
+                <!-- error -->
+                <p class="form-pass-error"></p>
+              </div>
+              <div class="form-input-group">
+                <input
+                  type="password"
+                  id="inputCreatePass"
+                  class="form-input"
+                  autofocus
+                  placeholder="Podaj hasło"
+                />
+              </div>
+              <div class="form-input-group">
+                <input
+                  type="password"
+                  id="inputCreatePassConfirm"
+                  class="form-input"
+                  autofocus
+                  placeholder="Powtórz hasło"
+                />
+              </div>
+              <button class="form-button" id="createButton">Zarejestruj</button>
+              <p class="form-text">
+                <a id="linkLogin" class="form-link" href="#"
+                  >Mam już konto. Chcę się zalogować</a
+                >
+              </p>
+            </form>
+            <!-- forgot pass -->
+            <form class="form-hidden form" id="forgotPass">
+              <h1 class="form-title">Zapomniałem hasło</h1>
+              <!-- error -->
+              <p class="form-forgot-error"></p>
+              <div class="form-input-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  id="inputForgotPass"
+                  autofocus
+                  placeholder="e-mail"
+                />
+                <p class="form-input-error-message">Błąd!</p>
+              </div>
+              <button class="form-button" id="forgotButton" disabled>
+                Dalej
+              </button>
+              <p class="form-text">
+                <a id="linkLogin" class="form-link" href="/logowanie.html"
+                  >Mam już konto. Chcę się zalogować</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="#" class="menuComponent container-fluid p-0">
       <div class="row m-0">
-        <div class="cardsBox col-12 d-flex p-0">
-          <div id="travel" class="section">
-            <div class="title">
-              <a href="#podroze">Podróże</a>
-            </div>
-          </div>
-          <div id="events" class="section">
-            <div class="title">
-              <a href="#wydarzenia">Wydarzenia</a>
-            </div>
-          </div>
-          <div id="personal" class="section">
-            <div class="title">
-              <a href="#osobiste">Osobiste</a>
-            </div>
-          </div>
-          <div id="fun" class="section">
-            <div class="title"><a href="#rozrywka">Rozrywka</a></div>
-          </div>
-          <div id="others" class="section">
-            <div class="title"><a href="#inne">Inne</a></div>
-          </div>
+        <div class="cardsBox col-12 d-flex flex-column flex-sm-row p-0">
+          <a href="#podroze">
+            <div id="travel" class="section">
+              <div class="title">Podróże</div>
+            </div></a
+          >
+          <a href="#wydarzenia">
+            <div id="events" class="section">
+              <div class="title">Wydarzenia</div>
+            </div></a
+          >
+          <a href="#osobiste"
+            ><div id="personal" class="section">
+              <div class="title">Osobiste</div>
+            </div></a
+          >
+          <a href="#rozrywka"
+            ><div id="fun" class="section">
+              <div class="title">Rozrywka</div>
+            </div></a
+          >
+          <a href="#inne"
+            ><div id="others" class="section">
+              <div class="title">Inne</div>
+            </div></a
+          >
         </div>
       </div>
     </div>
@@ -298,7 +416,7 @@
 
     <div id="wydarzenia" class="wydarzeniaComponent container-fluid d-none">
       <div class="row m-0">
-        <div class="wydarzeniaBox col-12">
+        <div class="wydarzeniaBox col-12 p-2">
           <h1>Wydarzenia</h1>
           <ul></ul>
         </div>
@@ -334,7 +452,7 @@
 
     <div id="results" class="resultsComponent container-fluid p-0 d-none">
       <div class="row m-0">
-        <div class="resultsBox col-12 p-5"></div>
+        <div class="resultsBox col-12 p-2 p-lg-5"></div>
       </div>
     </div>
 

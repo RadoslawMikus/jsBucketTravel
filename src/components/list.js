@@ -1,8 +1,12 @@
-import { kraje, travelArr, travelMemory } from "./modal";
+// --------------------------------
+// IMPORTS
+// --------------------------------
+import { kraje, travelArr } from "./modal";
 import html2pdf from "jspdf-html2canvas";
 
-// ARRAY DECLARATION
-// ------------------------------
+// --------------------------------
+// DECLARATIONS
+// --------------------------------
 let questions;
 export let eventsArr = [];
 export let personalArr = [];
@@ -16,17 +20,14 @@ export let fullArr = {
     travelArr
   ).length,
 };
+
+// --------------------------------
+// SESSIONSTORAGE LOGICS
+// --------------------------------
 let eventsMemory = JSON.parse(sessionStorage.getItem("eventsSessionArr"));
 let otherMemory = JSON.parse(sessionStorage.getItem("otherSessionArr"));
 let entMemory = JSON.parse(sessionStorage.getItem("entSessionArr"));
 let personalMemory = JSON.parse(sessionStorage.getItem("personalSessionArr"));
-
-window.addEventListener("click", () => {
-  console.log(
-    `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr.superArray}`
-  );
-  console.log(`Memory personal: ${personalMemory}`);
-});
 
 if (eventsMemory !== null) {
   eventsArr = eventsMemory;
@@ -52,15 +53,18 @@ fullArr.superArray = eventsArr.concat(
 ).length;
 document.querySelector("#numberList").innerHTML = fullArr.superArray;
 
+// --------------------------------
+// LOADING JSON WITH QUESTIONS
+// --------------------------------
 const readQuestionsJson = async function () {
   const questionsJSON = require("../../assets/questions.json");
   const responseQuestions = await fetch(questionsJSON);
   const dataQuestions = await responseQuestions.json();
   questions = dataQuestions;
 
-  // CREATING <LI> ELEMENTS WITH CHECKBOX AND QUESTION
-  // ------------------------------
-
+  // --------------------------------
+  // GENERATING QUESTION LIST
+  // --------------------------------
   const generateListItems = function (boxName, className, sectionName) {
     const listBox = document.querySelector(`.${boxName} ul`);
 
@@ -76,20 +80,19 @@ const readQuestionsJson = async function () {
   generateListItems("rozrywkaBox", "entertainmentInput", "Rozrywka");
   generateListItems("inneBox", "othersInput", "Inne");
 
+  // --------------------------------
   // ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
   // REMOVE FROM ARRAY AND REMOVE PROPERTY CHECKED
-  // ------------------------------
-
+  // --------------------------------
   const allPersonalInputs = document.querySelectorAll(".osobisteBox input");
   const allEventsInputs = document.querySelectorAll(".wydarzeniaBox input");
   const allEntertainmentInputs =
     document.querySelectorAll(".rozrywkaBox input");
   const allOtherInputs = document.querySelectorAll(".inneBox input");
 
-  // CHECKED IF IN ARRAY
-  // ------------------------------
-  //NAMIERZYĆ WSZYSTKIE ID ZAWARTE W TABLICY
-  //PRZECZYTAĆ WSZYSTKIE INPUTY I SPRAWDZIĆ, CZY ID INPUTA ZNAJDUJE SIĘ W TABLICY
+  // --------------------------------
+  // CHECK IF IT IS IN ARRAY
+  // --------------------------------
   const checkedIfInArray = (inputName, arrName) => {
     inputName.forEach((input) => {
       if (arrName.includes(input.id)) {
@@ -102,10 +105,10 @@ const readQuestionsJson = async function () {
   checkedIfInArray(allEntertainmentInputs, enterntainmentArr);
   checkedIfInArray(allOtherInputs, othersArr);
 
+  // --------------------------------
   // ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
   // REMOVE FROM ARRAY AND REMOVE PROPERTY CHECKED
-  // ------------------------------
-
+  // --------------------------------
   const addEvent = (inputName, arrName, sessionName) => {
     inputName.forEach((singleInput) =>
       singleInput.addEventListener("click", (e) => {
@@ -129,9 +132,6 @@ const readQuestionsJson = async function () {
         sessionStorage.setItem(sessionName, JSON.stringify(arrName));
 
         document.querySelector("#numberList").innerHTML = fullArr.superArray;
-        // console.log(
-        //   `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr.superArray}`
-        // );
       })
     );
   };
@@ -141,36 +141,42 @@ const readQuestionsJson = async function () {
   addEvent(allOtherInputs, othersArr, "otherSessionArr");
   addEvent(allEventsInputs, eventsArr, "eventsSessionArr");
 
-  // SHOW QUESTIONS THAT ARE PRESENT IN EVERY ARRAY
-  // ------------------------------
-  //
+  // --------------------------------
+  // SHOW QUESTIONS THAT ARE PRESENT IN  ARRAY
+  // --------------------------------
   const resultsBox = document.querySelector(".resultsBox");
 
   const usedHash = window.location.hash;
   window.location.hash = "";
   window.location.hash = usedHash;
 
-  //STWORZYĆ H1
   const yourListHeader = document.createElement("h1");
-  //DODAĆ TWOJA LISTA: DO INNER HTML
   yourListHeader.innerHTML = "TWOJA LISTA:";
-  //DODAĆ H1
-  //STWORZYĆ H2
+
+  const listIsEmpty = document.createElement("div");
+  listIsEmpty.classList.add("listIsEmpty");
+  listIsEmpty.innerHTML = "Twoja lista jest jeszcze pusta.";
   const travelHeader = document.createElement("h2");
-  //DODAĆ PODROŻE: DO INNER HTML
-  travelHeader.innerHTML = "Podróże:";
-  //DODAĆ H2
-  //STWORZYĆ UL
   const travelResults = document.createElement("ul");
   const generatePdfBtn = document.createElement("button");
-  //DODAĆ UL
 
+  // --------------------------------
+  // SHOW RESULTS - TRAVEL
+  // --------------------------------
   window.addEventListener("hashchange", function () {
     if (location.hash === "#results") {
       resultsBox.innerHTML = "";
       travelResults.innerHTML = "";
+      travelHeader.innerHTML = `Podróże (${travelArr.length})`;
 
       resultsBox.appendChild(yourListHeader);
+
+      if (
+        eventsArr.concat(personalArr, enterntainmentArr, othersArr, travelArr)
+          .length === 0
+      ) {
+        resultsBox.appendChild(listIsEmpty);
+      }
 
       if (travelArr.length > 0) {
         resultsBox.appendChild(travelHeader);
@@ -178,7 +184,6 @@ const readQuestionsJson = async function () {
 
         for (let i = 0; i < kraje.length; i++) {
           if (travelArr.includes(kraje[i].id)) {
-            //STWORZYĆ LI
             const liTravel = document.createElement("li");
 
             liTravel.addEventListener("click", (e) => {
@@ -186,8 +191,21 @@ const readQuestionsJson = async function () {
                 if (travelArr[i] === e.target.id) {
                   travelArr.splice(i, 1);
                   liTravel.remove();
+                  travelHeader.innerHTML = `Podróże (${travelArr.length})`;
                 }
               }
+
+              if (
+                eventsArr.concat(
+                  personalArr,
+                  enterntainmentArr,
+                  othersArr,
+                  travelArr
+                ).length === 0
+              ) {
+                listIsEmpty.remove();
+              }
+
               fullArr.superArray = eventsArr.concat(
                 personalArr,
                 enterntainmentArr,
@@ -200,47 +218,52 @@ const readQuestionsJson = async function () {
                 "travelSessionArr",
                 JSON.stringify(travelArr)
               );
+
               if (travelArr.length === 0) {
                 travelHeader.remove();
               }
-            });
 
-            //DODAĆ KRAJ DO LI
+              if (
+                eventsArr.concat(
+                  personalArr,
+                  enterntainmentArr,
+                  othersArr,
+                  travelArr
+                ).length === 0
+              ) {
+                generatePdfBtn.remove();
+                travelHeader.remove();
+                resultsBox.appendChild(listIsEmpty);
+              }
+            });
 
             liTravel.innerHTML =
               kraje[i].getAttribute("name") +
               `<button id="${kraje[i].id}" data-html2canvas-ignore="true" class="removeFromList">X</button>`;
-            //DODAĆ LI DO UL
             travelResults.appendChild(liTravel);
           }
         }
       }
 
+      // --------------------------------
+      // SHOW RESULTS - REST OF CATEGORIES
+      // --------------------------------
       const showAllSelected = function (
         secName,
         arrName,
         sessionArr,
         allImputs
       ) {
-        //STWORZYĆ H1
-        const sectionHeader = document.createElement("h1");
-        //DODAĆ NAZWĘ TABLICY DO INNER HTML
-        sectionHeader.innerHTML = secName;
-        //DODAĆ H1
+        const sectionHeader = document.createElement("h2");
+        sectionHeader.innerHTML = secName + ` (${arrName.length})`;
         resultsBox.appendChild(sectionHeader);
-        //STWORZYĆ UL
         const sectionUl = document.createElement("ul");
-        //DODAĆ UL
         resultsBox.appendChild(sectionUl);
-        // console.log(`${secName}:`);
         for (let i = 0; i < arrName.length; i++) {
-          //STWORZYĆ LI
           const sectionLi = document.createElement("li");
-          //DODAĆ QUESTION DO LI INNER HTML
           sectionLi.innerHTML =
             questions[secName][arrName[i]] +
             `<button id="${arrName[i]}" data-html2canvas-ignore="true" class="removeFromList">X</button>`;
-          //DODAĆ LI DO UL
           sectionUl.appendChild(sectionLi);
 
           sectionLi.addEventListener("click", (e) => {
@@ -249,8 +272,10 @@ const readQuestionsJson = async function () {
                 arrName.splice(i, 1);
                 sectionLi.remove();
                 allImputs[e.target.id].checked = false;
+                sectionHeader.innerHTML = secName + ` (${arrName.length})`;
               }
             }
+
             fullArr.superArray = eventsArr.concat(
               personalArr,
               enterntainmentArr,
@@ -262,6 +287,17 @@ const readQuestionsJson = async function () {
             sessionStorage.setItem(sessionArr, JSON.stringify(arrName));
             if (arrName.length === 0) {
               sectionHeader.remove();
+            }
+            if (
+              eventsArr.concat(
+                personalArr,
+                enterntainmentArr,
+                othersArr,
+                travelArr
+              ).length === 0
+            ) {
+              generatePdfBtn.remove();
+              resultsBox.appendChild(listIsEmpty);
             }
           });
         }
@@ -275,15 +311,6 @@ const readQuestionsJson = async function () {
         );
       }
 
-      if (enterntainmentArr.length > 0) {
-        showAllSelected(
-          "Rozrywka",
-          enterntainmentArr,
-          "entSessionArr",
-          allEntertainmentInputs
-        );
-      }
-
       if (personalArr.length > 0) {
         showAllSelected(
           "Osobiste",
@@ -293,27 +320,38 @@ const readQuestionsJson = async function () {
         );
       }
 
+      if (enterntainmentArr.length > 0) {
+        showAllSelected(
+          "Rozrywka",
+          enterntainmentArr,
+          "entSessionArr",
+          allEntertainmentInputs
+        );
+      }
+
       if (othersArr.length > 0) {
         showAllSelected("Inne", othersArr, "otherSessionArr", allOtherInputs);
       }
     }
 
-    generatePdfBtn.innerHTML = "Wygeneruj";
+    generatePdfBtn.innerHTML = "Wygeneruj PDF";
     generatePdfBtn.setAttribute("data-html2canvas-ignore", "true");
-    resultsBox.appendChild(generatePdfBtn);
 
-    // const removeFromList = document.querySelectorAll(".removeFromList");
-    // removeFromList.forEach((remove) => {
-    //   remove.addEventListener("click", (e) => {
-    //     console.log(allEventsInputs);
-    //   });
-    // });
+    if (
+      eventsArr.concat(personalArr, enterntainmentArr, othersArr, travelArr)
+        .length > 0
+    ) {
+      resultsBox.appendChild(generatePdfBtn);
+    }
   });
 
+  // --------------------------------
+  // EXPORT THE PDF
+  // --------------------------------
   let opt = {
     filename: "myfile.pdf",
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { width: 800 },
+
     jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
     pagebreak: { mode: ["avoid-all", "css", "legacy"] },
   };

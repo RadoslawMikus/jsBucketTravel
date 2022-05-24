@@ -1,9 +1,18 @@
+// -----------------------------
+// DECLARATIONS
+// -----------------------------
+
 const zoomPlus = document.querySelector("#zoomPlus");
 const zoomMinus = document.querySelector("#zoomMinus");
 const europeMap = document.querySelector(".mapBox svg");
 const mapBox = document.querySelector(".mapBox");
-
+export let isPressed;
+export let isReadyToClick;
 let currentScale = 1;
+
+// -----------------------------
+// FUNCTIONS ZOOM IN AND ZOOM OUT
+// -----------------------------
 
 const zoomIn = function () {
   if (currentScale < 3) {
@@ -24,11 +33,6 @@ const zoomOut = function () {
 zoomPlus.addEventListener("click", zoomIn);
 zoomMinus.addEventListener("click", zoomOut);
 
-// Funkcja po naciśnięciu i trzymaniu lewego przycisku myszy
-// Zapisz moją pozycję X i Y względem okna
-// Jak przesuwam myszkę trzymając, pamiętaj moją pozycję
-// Odejmuj X i Y początkowe od aktualnego
-
 let xBeg = 0,
   yBeg = 0,
   xAft = 0,
@@ -37,10 +41,15 @@ let maxTopOffset = 0,
   minTopOffset = 0,
   maxLeftOffset = 0,
   minLeftOffset = 0;
-export let isPressed = false;
+isPressed = false;
 let bbox;
 
+// -----------------------------
+// MOVE MAP - FUNCTION ON MOUSE CLICK
+// -----------------------------
+
 const dragDown = function (e) {
+  isReadyToClick = true;
   let europeMap = document.querySelector(".mapBox svg");
   xBeg = e.clientX;
   yBeg = e.clientY;
@@ -48,17 +57,23 @@ const dragDown = function (e) {
   isPressed = true;
   bbox = europeMap.getBBox();
 
-  document.addEventListener("mousemove", dragMove, false);
+  document.addEventListener("mousemove", dragMove);
   document.addEventListener("mouseup", dragQuit);
 };
 
+mapBox.addEventListener("mousedown", dragDown);
+// -----------------------------
+// MOVE MAP - FUNCTION ON MOUSE MOVE
+// -----------------------------
+
 const dragMove = function (e) {
   if (isPressed == true) {
+    isPressed = true;
+    isReadyToClick = false;
     xAft = xBeg - e.clientX;
     yAft = yBeg - e.clientY;
     xBeg = e.clientX;
     yBeg = e.clientY;
-
     if (mapBox.offsetTop > maxTopOffset) {
       mapBox.style.top = maxTopOffset - yAft + "px";
     } else if (mapBox.offsetTop < minTopOffset) {
@@ -82,12 +97,20 @@ const dragMove = function (e) {
   }
 };
 
+// -----------------------------
+// MOVE MAP - FUNCTION ON MOUSE UP
+// -----------------------------
+
 const dragQuit = function (e) {
   isPressed = false;
+  setTimeout(() => {
+    isReadyToClick = true;
+  }, 10);
 };
 
-mapBox.addEventListener("mousedown", dragDown);
-
+// -----------------------------
+// MOVE MAP - FUNCTION ON TOUCH START
+// -----------------------------
 const touchStartFunction = function (e) {
   xBeg = e.changedTouches[0].clientX;
   yBeg = e.changedTouches[0].clientY;
@@ -99,6 +122,11 @@ const touchStartFunction = function (e) {
   document.addEventListener("touchend", touchEndFunction, true);
 };
 
+mapBox.addEventListener("touchstart", touchStartFunction);
+
+// -----------------------------
+// MOVE MAP - FUNCTION ON TOUCH MOVE
+// -----------------------------
 const touchMoveFunction = function (e) {
   if (isPressed == true) {
     xAft = xBeg - e.changedTouches[0].clientX;
@@ -129,8 +157,9 @@ const touchMoveFunction = function (e) {
   }
 };
 
+// -----------------------------
+// MOVE MAP - FUNCTION ON TOUCH END
+// -----------------------------
 const touchEndFunction = function (e) {
   isPressed = false;
 };
-
-mapBox.addEventListener("touchstart", touchStartFunction);

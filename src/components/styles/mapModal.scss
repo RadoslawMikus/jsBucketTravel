@@ -1,0 +1,146 @@
+.modalBackground {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1000000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modalMap {
+  width: 90%;
+  min-height: 60%;
+  background-color: #faebd7;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  border-radius: 20px;
+  flex-direction: column;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    &:last-of-type li {
+      padding: 5px 0;
+    }
+
+    &:last-of-type li::before {
+      content: "- ";
+    }
+
+    &:last-of-type li:nth-of-type(4),
+    &:last-of-type li:nth-of-type(5) {
+      display: none;
+    }
+  }
+}
+
+.leftModal {
+  display: none;
+  flex-direction: row;
+  height: 100%;
+  width: 18%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.middleModal {
+  padding: 20px;
+  height: 100%;
+  width: 90%;
+}
+
+.rightModal {
+  display: none;
+  height: 100%;
+  width: 22%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: block;
+    text-align: center;
+  }
+}
+
+.flagModal {
+  width: 70%;
+}
+
+.emblemModal {
+  margin-top: 20px;
+  width: 70%;
+}
+
+.closingBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: 0;
+  background-color: transparent;
+  font-size: 22px;
+  color: #adadad;
+}
+
+.travelSelectBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+
+  input {
+    margin: 0px 5px 0 10px;
+  }
+}
+
+.weatherModal {
+  display: block;
+  width: 80%;
+}
+
+.temperatureModal {
+  font-size: 22px;
+}
+
+@media (min-width: 567px) {
+}
+
+@media (min-width: 769px) {
+  .modalMap {
+    flex-direction: row;
+  }
+
+  .middleModal {
+    padding: 20px;
+    width: 60%;
+  }
+
+  .leftModal {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .rightModal {
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) {
+  .modalMap {
+    width: 65%;
+  }
+}

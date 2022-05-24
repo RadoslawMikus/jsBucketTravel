@@ -1,23 +1,28 @@
-@import "/src/components/styles/colors.scss";
-
-// czy tu też powinniśmy zrootować style?? (Przemek)
+$linkColor: #5c87ff;
+$formColor: #1f1f1f;
+$textColor: #ffffff;
+$errorColor: #d84f4f;
 
 $borderRadius: 5px;
-// border radius viariable
 
 .loginBox {
   position: absolute;
   z-index: 1000;
 }
 
+.loginComponent {
+  height: 100%;
+  width: 100%;
+}
+
 .loginFormBg {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 500;
+  z-index: 2;
 }
 
 .auth-form {
@@ -26,6 +31,11 @@ $borderRadius: 5px;
   background-color: $formColor;
   border: 1px solid $linkColor;
   border-radius: $borderRadius;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form {
@@ -68,13 +78,13 @@ $borderRadius: 5px;
   border: 2px solid $linkColor;
   border-radius: $borderRadius;
   transition: background 0.3s, border-color 0.3s;
-}
 
-.form-input:focus {
-  border-color: rgb(114, 199, 128);
-  background: white;
-  box-shadow: 0 0 15px rgb(114, 199, 128);
-  color: $formColor;
+  &:focus {
+    border-color: rgb(114, 199, 128);
+    background: white;
+    box-shadow: 0 0 15px rgb(114, 199, 128);
+    color: $formColor;
+  }
 }
 
 .form-input-error,
@@ -101,10 +111,10 @@ $borderRadius: 5px;
   color: $textColor;
   border-radius: $borderRadius;
   transition: background-color 0.3s;
-}
 
-.form-button:hover {
-  background-color: rgb(50, 133, 50);
+  &:hover {
+    background-color: rgb(50, 133, 50);
+  }
 }
 
 .form-link {

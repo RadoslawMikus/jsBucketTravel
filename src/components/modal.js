@@ -1,4 +1,7 @@
-import { isPressed } from "./zoom";
+// ------------------------------
+// IMPORTS AND DECLARATIONS
+// ------------------------------
+import { isReadyToClick } from "./zoom";
 import {
   eventsArr,
   othersArr,
@@ -13,6 +16,17 @@ modalMap.classList.add("modalMap");
 modalBackground.appendChild(modalMap);
 document.body.appendChild(modalBackground);
 modalBackground.classList.add("modalBackground");
+let travelSelectBtn;
+const travelSelect = document.createElement("div");
+travelSelect.innerHTML = `DODAJ <span class="d-none d-xl-inline">&nbspDO LISTY</span>`;
+const closingBtn = document.createElement("button");
+closingBtn.classList.add("closingBtn");
+closingBtn.innerHTML = "X";
+
+// ------------------------------
+// DECLARATION OF TRAVEL ARRAY +
+// SESSION STORAGE OF TRAVEL ARRAY
+// ------------------------------
 export let travelArr = [];
 export let travelMemory = JSON.parse(
   sessionStorage.getItem("travelSessionArr")
@@ -22,23 +36,22 @@ if (travelMemory !== null) {
   travelArr = travelMemory;
 }
 
+// ------------------------------
+// LOADING COUNTRIES FROM JSON
+// ------------------------------
+
 const readJson = async function () {
   const countriesJSON = require("../../assets/countries.json");
   const response = await fetch(countriesJSON);
   const data = await response.json();
   const countries = data;
 
-  let travelSelectBtn;
-  const travelSelect = document.createElement("div");
-
-  const closingBtn = document.createElement("button");
-  closingBtn.classList.add("closingBtn");
-  closingBtn.innerHTML = "X";
+  // ------------------------------
+  // CREATING MODAL WITH DATA
+  // FROM WEATHER API
+  // ------------------------------
 
   const openIt = function (kraj) {
-    modalMap.style.display = "block";
-    modalBackground.style.display = "flex";
-
     for (let i = 0; i < countries.Countries.length; i++) {
       if (kraj.getAttribute("name") === countries.Countries[i].name) {
         fetch(
@@ -48,17 +61,48 @@ const readJson = async function () {
         )
           .then((response) => response.json())
           .then((data) => {
-            modalMap.innerHTML = `<h2>${countries.Countries[i].name}</h2>`;
-            modalMap.innerHTML += `<h4>${countries.Countries[i].capital}</h4>`;
-            modalMap.innerHTML += `<h4>${countries.Countries[i].currency.name}</h4>`;
-            modalMap.innerHTML += `<h4>${countries.Countries[i].info1}</h4>`;
-            modalMap.innerHTML += `<h4>${countries.Countries[i].info2}</h4>`;
-            modalMap.innerHTML += `<h4>${countries.Countries[i].language.name}</h4>`;
-            modalMap.innerHTML += `<h4>${countries.Countries[i].population}</h4>`;
-            modalMap.innerHTML += `<img style="height: 50px; width: 80px;" src="${countries.Countries[i].flag}" alt="">`;
-            modalMap.innerHTML += `<img style="height: 100px" src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="x">`;
-            modalMap.innerHTML += `<img style="height: 100px" src="${countries.Countries[i].emblem}" alt="x">`;
-            modalMap.innerHTML += data.main.temp;
+            modalMap.innerHTML = `
+            
+            <div class="leftModal">
+
+            <img class="flagModal" src="${countries.Countries[i].flag}">
+            <img class="emblemModal" src="${countries.Countries[i].emblem}">
+            
+            </div>`;
+
+            modalMap.innerHTML += `
+            
+            <div class="middleModal">
+            
+            <h1>${countries.Countries[i].name}</h1>
+
+            <ul>
+            <li>Liczba ludności: ${countries.Countries[i].population}</li>
+            <li>Język urzędowy: ${countries.Countries[i].language.name}</li>
+            </ul>
+            
+            <ul>
+            <li>${countries.Countries[i].info1}</li>
+            <li>${countries.Countries[i].info2}</li>
+            <li>${countries.Countries[i].info3}</li>
+            <li class="d-none d-sm-block">${countries.Countries[i].info4}</li>
+            <li class="d-none d-sm-block">${countries.Countries[i].info5}</li>
+            </ul>
+            
+            </div>`;
+
+            modalMap.innerHTML += `
+            <div class="rightModal">
+
+            <h3>${countries.Countries[i].capital}</h3>
+            <img class="weatherModal" src="http://openweathermap.org/img/w/${
+              data.weather[0].icon
+            }.png">
+            <div class="temperatureModal">${parseInt(
+              data.main.temp
+            )}<sup>o</sup>C</div>
+            
+            </div>`;
             modalMap.appendChild(closingBtn);
             modalMap.appendChild(travelSelect);
           });
@@ -67,6 +111,16 @@ const readJson = async function () {
       }
     }
 
+    // ------------------------------
+    // CLOSING MODAL BY CLICKING ON
+    // BACKGROUND, CLICKING X BUTTON
+    // AND CLICKING ESCAPE
+    // ------------------------------
+
+    const closeModal = () => {
+      modalBackground.style.display = "none";
+      travelSelectBtn.remove();
+    };
     window.addEventListener("click", function (e) {
       if (e.target == modalBackground) {
         closeModal();
@@ -81,6 +135,11 @@ const readJson = async function () {
       }
     });
 
+    // ------------------------------
+    // ADDING ATTRIBUTE CHECKED IF
+    // COUNTRY IS PRESENT IN THE ARRAY
+    // ------------------------------
+
     travelSelectBtn = document.createElement("input");
     travelSelectBtn.setAttribute("type", "checkbox");
     travelSelect.appendChild(travelSelectBtn);
@@ -90,6 +149,11 @@ const readJson = async function () {
     } else {
       travelSelectBtn.removeAttribute("checked");
     }
+
+    // ------------------------------
+    // ADDING AND REMOVING COUNTRY TO
+    // ARRAY BY CLICKING ON CHECKBOX
+    // ------------------------------
 
     travelSelectBtn.addEventListener("click", () => {
       if (travelSelectBtn.getAttribute("checked") === "checked") {
@@ -112,17 +176,30 @@ const readJson = async function () {
       document.querySelector("#numberList").innerHTML = fullArr.superArray;
       sessionStorage.setItem("travelSessionArr", JSON.stringify(travelArr));
     });
+
+    modalMap.style.display = "flex";
+    modalBackground.style.display = "flex";
   };
 
+  // ------------------------------
+  // OPENING MODAL BY CLICKING ON
+  // A COUNTRY
+  // ------------------------------
+
   const openModal = function (kraj) {
-    if (isPressed == false) {
-      kraj.addEventListener("click", () => {
+    kraj.addEventListener("click", () => {
+      if (isReadyToClick === true) {
         openIt(kraj);
-      });
-    }
+      }
+    });
   };
 
   kraje.forEach(openModal);
+
+  // ------------------------------
+  // OPENING MODAL BY CLICKING
+  // ON SUGGESTION
+  // ------------------------------
 
   window.addEventListener("click", (e) => {
     kraje.forEach((kraj) => {
@@ -133,31 +210,5 @@ const readJson = async function () {
       }
     });
   });
-
-  const closeModal = () => {
-    modalBackground.style.display = "none";
-    travelSelect.innerHTML = "";
-  };
 };
 readJson();
-
-// window.addEventListener("click", () => {
-//   console.log(
-//     `Podróże: ${travelArr}, Osobiste: ${personalArr}, Rozrywka: ${enterntainmentArr}, Wydarzenia: ${eventsArr}, Inne: ${othersArr}, Wszystkie: ${fullArr.superArray}`
-//   );
-// });
-
-//STWORZYĆ SPAN z X w środku DONE
-//NADAĆ MU KLASĘ closingBtn DONE
-// WYŚWIETLIĆ GO WEWNĄTRZ MODALU DONE
-//DODAĆ DO NIEGO ADDEVENT, KTORY BĘDZIE ROBIŁ DISPLAY NONE DLA MODALU i TŁA DONE
-//DODAĆ ADD EVENT CLICK, ESCAPE I CLICK OUTSIDE OF MODAL DONE
-
-//STWORZYĆ DIVA Z INPUTEM W ŚRODKU
-//NADAĆ DIVOVI KLASĘ travelSelectBtn
-//USTAWIĆ, ŻE PO KLIKNIĘCIU INPUTU JEST ON USTAWIONY NA CHECKED/UNCHECKED I JEST DODAWANY/USUWANY Z TABLICY travelArr
-//PO KAŻDYM DODANIU AKTUALIZOWAĆ OSTATECZNA LISTĘ
-
-// ------------------------
-// INNE RZECZY
-// ------------------------

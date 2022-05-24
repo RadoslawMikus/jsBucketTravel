@@ -9,10 +9,6 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = merge(common, {
   entry: {
     main: "./src/main.js",
-    api: {
-      import: "./src/components/api.js",
-      filename: "components/[name].js",
-    },
     list: {
       import: "./src/components/list.js",
       filename: "components/[name].js",
@@ -21,20 +17,16 @@ module.exports = merge(common, {
       import: "./src/components/login.js",
       filename: "components/[name].js",
     },
-    modal: {
-      import: "./src/components/modal.js",
+    navigat: {
+      import: "./src/components/navigat.js",
       filename: "components/[name].js",
     },
     search: {
       import: "./src/components/search.js",
       filename: "components/[name].js",
     },
-    zoom: {
-      import: "./src/components/zoom.js",
-      filename: "components/[name].js",
-    },
   },
-  mode: "production",
+  mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
@@ -57,38 +49,6 @@ module.exports = merge(common, {
         },
       }),
 
-      new HtmlWebpackPlugin({
-        template: "./src/logowanie.html",
-        filename: "logowanie.html",
-        inject: "body",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true,
-        },
-      }),
-
-      new HtmlWebpackPlugin({
-        template: "./src/osobiste.html",
-        filename: "osobiste.html",
-        inject: "body",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true,
-        },
-      }),
-
-      new HtmlWebpackPlugin({
-        template: "./src/podroze.html",
-        filename: "podroze.html",
-        inject: "body",
-        minify: {
-          removeAttributeQuotes: true,
-          collapseWhitespace: true,
-          removeComments: true,
-        },
-      }),
       new TerserPlugin(),
     ],
   },

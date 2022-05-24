@@ -1,3 +1,5 @@
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
 // --------------------------------
 // LOGIN AND PASSWORD
 // --------------------------------
@@ -152,3 +154,6 @@ forgotPass.addEventListener("blur", () => {
     forgotButton.removeAttribute("disabled");
   }
 });
+
+/******/ })()
+;

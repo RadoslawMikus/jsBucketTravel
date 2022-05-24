@@ -1,192 +1,86 @@
-@import "./components/styles/colors.scss";
-@import "./components/styles/api.scss";
-@import "./components/styles/list.scss";
-@import "./components/styles/modal.scss";
+@import "./components/styles/resultsList.scss";
+@import "./components/styles/mapModal.scss";
+
+// @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap");
 
 $bgColor: #202020;
+$whiteColor: #fff;
+$titleBgColor: #20202099;
+$mapBgColor: lightblue;
+$sectionHeaderColor: #4b4ba5;
+$comebackHover: #c1c1c1;
 
-// General
+// --------------------------
+// GENERAL
 // --------------------------
 
-html {
+html,
+body,
+.bg-grey {
   background-color: $bgColor;
 }
 
 body {
   padding-top: 65px;
-  background-color: $bgColor;
-}
-
-.bg-grey {
-  background-color: $bgColor;
 }
 
 a,
 a:hover {
-  color: #fff !important;
+  color: $whiteColor !important;
   text-decoration: none !important;
 }
 
-// Navbar
 // --------------------------
+// NAVBAR
+// --------------------------
+
+nav {
+  z-index: 1 !important;
+}
+
 .navbar {
   min-height: 65px;
 }
 
-@import "./components/styles/search.scss";
-
-// Menu
-// --------------------------
-
-.cardsBox {
-  overflow: hidden;
-}
-
-.cardsBox a {
-  display: contents;
-}
-
-.section {
-  border: 1px solid black;
-  width: 100%;
-  height: 30vh;
-  transition: 0.5s all ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.section:hover {
+.comeBack {
   cursor: pointer;
-}
+  transition: 0.3s ease-in-out;
 
-@media (min-width: 576px) {
-  .section {
-    width: 20%;
-    height: calc(100vh - 121px);
-  }
-
-  .section:hover {
-    width: 70%;
+  &:hover {
+    color: $comebackHover !important;
   }
 }
 
-@media (min-width: 768px) {
-  .section:hover {
-    width: 35%;
-  }
-}
+@import "./components/styles/travelSearch.scss";
 
-.section a {
-  text-decoration: none;
-}
-
-.disabled {
-  background-color: rgba(40, 40, 40, 0.899);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-}
-
-.title {
-  background-color: rgba(32, 32, 32, 0.6);
-  color: #fff;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  position: absolute;
-  z-index: 2;
-}
-
-#travel {
-  background-image: url(../assets/images/1.jpg);
-  background-size: cover;
-  background-position: left;
-}
-
-#events {
-  background-image: url(../assets/images/2.jpg);
-  background-size: cover;
-}
-
-#personal {
-  background-image: url(../assets/images/3.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-#fun {
-  background-image: url(../assets/images/4.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-#others {
-  background-image: url(../assets/images/5.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-// Login
+// --------------------------
+// MENU
 // --------------------------
 
-@import "./components/styles/login.scss";
+@import "./components/styles/menuCards.scss";
 
-// Travel
+// --------------------------
+// LOGGING IN
 // --------------------------
 
-.travelBox {
-  height: calc(100vh - 123px) !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import "./components/styles/loggingIn.scss";
 
-.travelBox h1 {
-  padding: 10px;
-}
+// --------------------------
+// MAP ZOOM
+// --------------------------
 
-.osobisteBox h1,
-.wydarzeniaBox h1,
-.rozrywkaBox h1,
-.inneBox h1 {
-  display: block;
-}
+@import "./components/styles/mapZoom.scss";
 
-.resultsBox {
-  min-height: calc(100vh - 121px);
-}
-
-.osobisteBox ul,
-.rozrywkaBox ul,
-.wydarzeniaBox ul,
-.inneBox ul {
-  list-style-type: none;
-}
-
-.osobisteBox input,
-.rozrywkaBox input,
-.wydarzeniaBox input,
-.inneBox input {
-  margin: 20px 10px;
-}
-
-@import "./components/styles/zoom.scss";
-
-// Bootstrap
+// --------------------------
+// BOOTSTRAP
 // --------------------------
 
 @import "~bootstrap/scss/bootstrap";
 
-.comeBack {
-  cursor: pointer;
-}
+// --------------------------
+// FOOTER
+// --------------------------
 
-#wydarzenia,
-#osobiste {
-  padding-top: 65px;
-  margin-top: -65px;
+footer {
+  text-align: center;
 }

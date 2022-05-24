@@ -1,3 +1,9 @@
+$greyColor: #969696;
+$quantityColor: #fff;
+$quantityHoverColor: #29a34c;
+$suggestionLinkColor: #707070 !important;
+$suggestionsBgColor: #f5f5f5;
+
 .searchingBar {
   border-radius: 5px;
   border: 0;
@@ -13,6 +19,14 @@
   height: 100%;
   display: flex;
   position: relative;
+
+  span {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: $greyColor;
+    cursor: pointer;
+  }
 }
 
 .searchBox {
@@ -28,7 +42,7 @@
 }
 
 .suggestions {
-  background-color: rgb(245, 245, 245);
+  background-color: $suggestionsBgColor;
   position: absolute;
   margin-left: 10px;
   z-index: 3;
@@ -37,47 +51,45 @@
   border-radius: 0 0 5px 5px;
   padding: 0;
   list-style-type: none;
-}
 
-.suggestions a {
-  color: rgb(112, 112, 112) !important;
-  text-decoration: none;
-  display: block;
+  a {
+    color: $suggestionLinkColor;
+    text-decoration: none;
+    display: block;
+  }
 }
 
 .bar {
   margin: 3px 0;
-  color: rgb(150, 150, 150);
-}
+  color: $greyColor;
 
-.bar:last-of-type {
-  display: none;
-}
-
-textarea:focus,
-input:focus {
-  outline: none;
+  &:last-of-type {
+    display: none;
+  }
 }
 
 .singleSuggestion {
-  // padding: 4px 10px;
   padding: 4px 10px;
 }
 
-.searching span {
-  position: absolute;
-  top: 3px;
-  right: 10px;
-  color: rgb(150, 150, 150);
-  cursor: pointer;
-}
-
 .quantity {
-  border: 3px solid white;
+  border: 3px solid $quantityColor;
   border-radius: 15px;
   height: 40px;
   width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s ease-in-out;
+  margin-top: 10px;
+
+  &:hover {
+    border: 3px solid $quantityHoverColor;
+  }
+}
+
+@media (min-width: 576px) {
+  .quantity {
+    margin-top: 0px;
+  }
 }

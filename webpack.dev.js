@@ -7,74 +7,34 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   entry: {
     main: "./src/main.js",
-    api: {
-      import: "./src/components/api.js",
-      filename: "components/[name].[hash].js",
-    },
+
     list: {
       import: "./src/components/list.js",
-      filename: "components/[name].[hash].js",
+      filename: "components/[name].js",
     },
     login: {
       import: "./src/components/login.js",
-      filename: "components/[name].[hash].js",
+      filename: "components/[name].js",
     },
     search: {
       import: "./src/components/search.js",
-      filename: "components/[name].[hash].js",
-    },
-    zoom: {
-      import: "./src/components/zoom.js",
-      filename: "components/[name].[hash].js",
+      filename: "components/[name].js",
     },
   },
 
-  mode: "development",
+  mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
-    assetModuleFilename: "assets/[name].[hash][ext]",
+    filename: "[name].js",
+    assetModuleFilename: "assets/[name].[ext]",
   },
 
-  plugins: [new MiniCssExtractPlugin({ filename: "[name].[hash].css" })],
+  plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
   optimization: {
     minimize: true,
     minimizer: [
       new HtmlWebpackPlugin({
         template: "./src/index.html",
-        inject: "body",
-        minify: {
-          removeAttributeQuotes: false,
-          collapseWhitespace: false,
-          removeComments: false,
-        },
-      }),
-
-      new HtmlWebpackPlugin({
-        template: "./src/logowanie.html",
-        filename: "logowanie.html",
-        inject: "body",
-        minify: {
-          removeAttributeQuotes: false,
-          collapseWhitespace: false,
-          removeComments: false,
-        },
-      }),
-
-      new HtmlWebpackPlugin({
-        template: "./src/podroze.html",
-        filename: "podroze.html",
-        inject: "body",
-        minify: {
-          removeAttributeQuotes: false,
-          collapseWhitespace: false,
-          removeComments: false,
-        },
-      }),
-
-      new HtmlWebpackPlugin({
-        template: "./src/osobiste.html",
-        filename: "osobiste.html",
         inject: "body",
         minify: {
           removeAttributeQuotes: false,

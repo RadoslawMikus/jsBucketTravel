@@ -1,18 +1,11 @@
 // --------------------------------
 // IMPORTS
 // --------------------------------
-import "bootstrap";
-import "./main.scss";
-import "../assets/countries.json";
-import "../assets/questions.json";
-import navbar from "./navbarComponent.html";
-import footer from "./footerComponent.html";
 
-// --------------------------------
-// ADD NAVBAR AND FOOTER
-// --------------------------------
-document.querySelector(".navbarComponent").innerHTML = navbar;
-document.querySelector(".footerComponent").innerHTML = footer;
+import { countriesJ } from "./assets/countries.js";
+import { questionsJ } from "./assets/questions.js";
+export const countriesJS = countriesJ;
+export const questionsJS = questionsJ;
 
 // --------------------------------
 // HIDE ALL COMPONENTS
@@ -66,3 +59,19 @@ window.addEventListener("hashchange", function () {
     document.querySelector(".comeBack").classList.add("d-none");
   }
 });
+
+// -------------------------------------------
+// SEARCH
+// -------------------------------------------
+
+// -------------------------------------------
+// ZOOM
+// -------------------------------------------
+
+// -------------------------------------------
+// MODAL
+// -------------------------------------------
+
+// -------------------------------------------
+// LIST
+// -------------------------------------------

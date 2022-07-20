@@ -6,7 +6,7 @@ const zoomPlus = document.querySelector("#zoomPlus");
 const zoomMinus = document.querySelector("#zoomMinus");
 const europeMap = document.querySelector(".mapBox svg");
 const mapBox = document.querySelector(".mapBox");
-export let isPressed;
+let isPressed;
 export let isReadyToClick;
 let currentScale = 1;
 

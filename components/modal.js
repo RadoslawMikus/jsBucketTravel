@@ -1,14 +1,7 @@
 // ------------------------------
 // IMPORTS AND DECLARATIONS
 // ------------------------------
-import { isReadyToClick } from "./zoom";
-import {
-  eventsArr,
-  othersArr,
-  enterntainmentArr,
-  personalArr,
-  fullArr,
-} from "./list";
+
 export const kraje = document.querySelectorAll(".travelBox svg path");
 const modalBackground = document.createElement("div");
 const modalMap = document.createElement("div");
@@ -22,15 +15,22 @@ travelSelect.innerHTML = `DODAJ <span class="d-none d-xl-inline">&nbspDO LISTY</
 const closingBtn = document.createElement("button");
 closingBtn.classList.add("closingBtn");
 closingBtn.innerHTML = "X";
+import { countriesJS, questionsJS } from "../main.js";
+import { isReadyToClick } from "./zoom.js";
+import {
+  fullArr,
+  eventsArr,
+  othersArr,
+  personalArr,
+  enterntainmentArr,
+} from "./list.js";
 
 // ------------------------------
 // DECLARATION OF TRAVEL ARRAY +
 // SESSION STORAGE OF TRAVEL ARRAY
 // ------------------------------
 export let travelArr = [];
-export let travelMemory = JSON.parse(
-  sessionStorage.getItem("travelSessionArr")
-);
+let travelMemory = JSON.parse(sessionStorage.getItem("travelSessionArr"));
 
 if (travelMemory !== null) {
   travelArr = travelMemory;
@@ -40,11 +40,12 @@ if (travelMemory !== null) {
 // LOADING COUNTRIES FROM JSON
 // ------------------------------
 
-const readJson = async function () {
-  const countriesJSON = require("../../assets/countries.json");
-  const response = await fetch(countriesJSON);
-  const data = await response.json();
-  const countries = data;
+const readJson2 = async function () {
+  const countriesJSON = countriesJS;
+  // const response = await fetch(countriesJSON);
+  // const data = await response.json();
+  // const countries = data;
+  const countries = countriesJS;
 
   // ------------------------------
   // CREATING MODAL WITH DATA
@@ -211,4 +212,4 @@ const readJson = async function () {
     });
   });
 };
-readJson();
+readJson2();

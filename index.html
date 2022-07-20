@@ -5,125 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bucket Travel</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
-    <div class="navbarComponent"></div>
+    <nav
+class="navbar fixed-top text-light bg-grey py-1 px-3 d-flex justify-content-between align-items-center"
+>
 
-    <div class="loginComponent container-fluid">
-      <div class="row">
-        <div class="loginBox col-12">
-          <div class="loginFormBg"></div>
+</div>
 
-          <div class="auth-form">
-            <form class="form" id="login">
-              <h1 class="form-title">Logowanie</h1>
-              <p class="form-message-error"></p>
-              <div class="form-input-group">
-                <input
-                  type="text"
-                  class="form-input"
-                  id="inputLoginEmail"
-                  autofocus
-                  placeholder="Twój email"
-                />
-              </div>
-              <div class="form-input-group">
-                <input
-                  type="password"
-                  class="form-input"
-                  id="inputLoginPass"
-                  autofocus
-                  placeholder="Hasło"
-                />
-                <p class="form-input-error-message"></p>
-              </div>
-              <button class="form-button" id="loginButton" type="button">
-                Zaloguj
-              </button>
-              <p class="form-text">
-                <a id="linkForgotPass" class="form-link" href="#"
-                  >Zapomniałem hasła</a
-                >
-              </p>
-              <p class="form-text">
-                <a
-                  id="linkCreateAccount"
-                  class="form-link"
-                  href="/logowanie.html"
-                  >Nie masz konta? Zarejestruj się!</a
-                >
-              </p>
-            </form>
-            <!-- create account -->
-            <form class="form-hidden form" id="createAccount">
-              <h1 class="form-title">Zarejestruj się</h1>
-              <!-- error -->
-              <p class="form-create-error"></p>
-              <div class="form-input-group">
-                <input
-                  type="text"
-                  id="inputCreateEmail"
-                  class="form-input"
-                  autofocus
-                  placeholder="e-mail"
-                />
-                <!-- error -->
-                <p class="form-pass-error"></p>
-              </div>
-              <div class="form-input-group">
-                <input
-                  type="password"
-                  id="inputCreatePass"
-                  class="form-input"
-                  autofocus
-                  placeholder="Podaj hasło"
-                />
-              </div>
-              <div class="form-input-group">
-                <input
-                  type="password"
-                  id="inputCreatePassConfirm"
-                  class="form-input"
-                  autofocus
-                  placeholder="Powtórz hasło"
-                />
-              </div>
-              <button class="form-button" id="createButton">Zarejestruj</button>
-              <p class="form-text">
-                <a id="linkLogin" class="form-link" href="#"
-                  >Mam już konto. Chcę się zalogować</a
-                >
-              </p>
-            </form>
-            <!-- forgot pass -->
-            <form class="form-hidden form" id="forgotPass">
-              <h1 class="form-title">Zapomniałem hasło</h1>
-              <!-- error -->
-              <p class="form-forgot-error"></p>
-              <div class="form-input-group">
-                <input
-                  type="text"
-                  class="form-input"
-                  id="inputForgotPass"
-                  autofocus
-                  placeholder="e-mail"
-                />
-                <p class="form-input-error-message">Błąd!</p>
-              </div>
-              <button class="form-button" id="forgotButton" disabled>
-                Dalej
-              </button>
-              <p class="form-text">
-                <a id="linkLogin" class="form-link" href="index.html"
-                  >Mam już konto. Chcę się zalogować</a
-                >
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+<span class="order-1 order-sm-2"><a class="comeBack" href="#">WRÓĆ</a></span>
 
+
+<a class ="order-2 order-sm-3" href="#results"><div class="quantity"><span id="numberList">0</span></div></a>
+
+
+<div class="searchBox d-none order-3 order-sm-1 mx-auto pt-4 m-sm-0 pt-sm-0 justify-content-center">
+  WYSZUKAJ KRAJ:
+  <div class="searching">
+    <input class="searchingBar" maxlength="15"></input>
+    <ul class="suggestions"></ul>
+    <span style="display: none" tabindex="0">X</span>
+   
+  </div>
+</nav>
+
+    <main>
     <div id="#" class="menuComponent container-fluid p-0">
       <div class="row m-0">
         <div class="cardsBox col-12 d-flex flex-column flex-sm-row p-0">
@@ -450,7 +364,22 @@
         <div class="resultsBox col-11 col-md-9 mx-auto px-0 py-2"></div>
       </div>
     </div>
+  </main>
+    <footer class="bg-grey text-light p-3">jsBucketTravel © 2022</footer>
 
-    <div class="footerComponent"></div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-html2canvas@latest/dist/jspdf-html2canvas.min.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="/components/search.js"></script>
+    <script type="module" src="/components/zoom.js"></script>
+    <script type="module" src="/components/list.js"></script>
+    <script type="module" src="/components/modal.js"></script>
   </body>
 </html>

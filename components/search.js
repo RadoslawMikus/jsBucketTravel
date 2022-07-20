@@ -1,6 +1,7 @@
 // --------------------------------
 // DECLARATIONS
 // --------------------------------
+import { countriesJS } from "../main.js";
 
 const okienko = document.querySelector(".searchingBar");
 const suggestions = document.querySelector(".suggestions");
@@ -22,10 +23,11 @@ const reset = function () {
 // --------------------------------
 
 const readJson = async function () {
-  const countriesJSON = require("../../assets/countries.json");
-  const response = await fetch(countriesJSON);
-  const data = await response.json();
-  const countries = data;
+  const countriesJSON = countriesJS;
+  // const response = await fetch(countriesJSON);
+  // const data = await response.json();
+  // const countries = data;
+  const countries = countriesJS;
 
   // --------------------------------
   // LOAD COUNTRIES

@@ -1,12 +1,7 @@
 // --------------------------------
-// IMPORTS
-// --------------------------------
-import { kraje, travelArr } from "./modal";
-import html2pdf from "jspdf-html2canvas";
-
-// --------------------------------
 // DECLARATIONS
 // --------------------------------
+import { travelArr } from "./modal.js";
 let questions;
 export let eventsArr = [];
 export let personalArr = [];
@@ -20,6 +15,8 @@ export let fullArr = {
     travelArr
   ).length,
 };
+import { questionsJS } from "../main.js";
+import { kraje } from "./modal.js";
 
 // --------------------------------
 // SESSIONSTORAGE LOGICS
@@ -57,10 +54,11 @@ document.querySelector("#numberList").innerHTML = fullArr.superArray;
 // LOADING JSON WITH QUESTIONS
 // --------------------------------
 const readQuestionsJson = async function () {
-  const questionsJSON = require("../../assets/questions.json");
-  const responseQuestions = await fetch(questionsJSON);
-  const dataQuestions = await responseQuestions.json();
-  questions = dataQuestions;
+  const questionsJSON = questionsJS;
+  // const responseQuestions = await fetch(questionsJSON);
+  // const dataQuestions = await responseQuestions.json();
+  // questions = dataQuestions;
+  questions = questionsJS;
 
   // --------------------------------
   // GENERATING QUESTION LIST
@@ -349,15 +347,13 @@ const readQuestionsJson = async function () {
   // EXPORT THE PDF
   // --------------------------------
   let opt = {
-    filename: "myfile.pdf",
     image: { type: "jpeg", quality: 0.98 },
-
     jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
     pagebreak: { mode: ["avoid-all", "css", "legacy"] },
   };
 
   generatePdfBtn.addEventListener("click", () => {
-    html2pdf(resultsBox, opt);
+    html2PDF(resultsBox, opt);
   });
 };
 

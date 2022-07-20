@@ -1,0 +1,701 @@
+// -------------------------
+// RESULTS LIST
+// -------------------------
+
+.resultsBox {
+  min-height: calc(100vh - 121px);
+
+  ul {
+    margin: 30px 0;
+    padding-left: 40px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  & > button {
+    border: 0;
+    background-color: rgb(68, 177, 68);
+    border-radius: 10px;
+    padding: 8px 20px;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 30px 30px auto;
+  }
+
+  h1 {
+    margin: 30px 0 40px;
+    text-align: center;
+  }
+
+  h2 {
+    background-color: rgb(75, 75, 165);
+    color: white;
+    padding: 15px 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 200;
+  }
+}
+
+.listIsEmpty {
+  text-align: center;
+}
+
+.removeFromList {
+  border: 0;
+  background-color: transparent;
+  color: #900202;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+// -------------------------
+// MODAL
+// -------------------------
+
+.modalBackground {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1000000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modalMap {
+  width: 90%;
+  min-height: 60%;
+  background-color: #faebd7;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  border-radius: 20px;
+  flex-direction: column;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    &:last-of-type li {
+      padding: 5px 0;
+    }
+
+    &:last-of-type li::before {
+      content: "- ";
+    }
+
+    &:last-of-type li:nth-of-type(4),
+    &:last-of-type li:nth-of-type(5) {
+      display: none;
+    }
+  }
+}
+
+.leftModal {
+  display: none;
+  flex-direction: row;
+  height: 100%;
+  width: 18%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.middleModal {
+  padding: 20px;
+  height: 100%;
+  width: 90%;
+}
+
+.rightModal {
+  display: none;
+  height: 100%;
+  width: 22%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: block;
+    text-align: center;
+  }
+}
+
+.flagModal {
+  width: 70%;
+}
+
+.emblemModal {
+  margin-top: 20px;
+  width: 70%;
+}
+
+.closingBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: 0;
+  background-color: transparent;
+  font-size: 22px;
+  color: #adadad;
+}
+
+.travelSelectBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+
+  input {
+    margin: 0px 5px 0 10px;
+  }
+}
+
+.weatherModal {
+  display: block;
+  width: 80%;
+}
+
+.temperatureModal {
+  font-size: 22px;
+}
+
+@media (min-width: 567px) {
+}
+
+@media (min-width: 769px) {
+  .modalMap {
+    flex-direction: row;
+  }
+
+  .middleModal {
+    padding: 20px;
+    width: 60%;
+  }
+
+  .leftModal {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .rightModal {
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) {
+  .modalMap {
+    width: 65%;
+  }
+}
+
+// @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap");
+
+$bgColor: #202020;
+$whiteColor: #fff;
+$titleBgColor: #20202099;
+$mapBgColor: lightblue;
+$sectionHeaderColor: #4b4ba5;
+$comebackHover: #c1c1c1;
+
+// --------------------------
+// GENERAL
+// --------------------------
+
+html,
+body,
+.bg-grey {
+  background-color: $bgColor;
+}
+
+main {
+  background-color: white;
+}
+
+body {
+  padding-top: 65px;
+}
+
+a,
+a:hover {
+  color: $whiteColor !important;
+  text-decoration: none !important;
+}
+
+// --------------------------
+// NAVBAR
+// --------------------------
+
+nav {
+  z-index: 1 !important;
+}
+
+.navbar {
+  min-height: 65px;
+}
+
+.comeBack {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: $comebackHover !important;
+  }
+}
+
+// --------------------------
+// TRAVEL SEARCH
+// --------------------------
+
+$greyColor: #969696;
+$quantityColor: #fff;
+$quantityHoverColor: #29a34c;
+$suggestionLinkColor: #707070 !important;
+$suggestionsBgColor: #f5f5f5;
+
+.searchingBar {
+  border-radius: 5px;
+  border: 0;
+  padding: 3px 10px;
+  margin-left: 10px;
+  width: 200px;
+  height: 30px;
+  resize: none;
+}
+
+.searching {
+  position: relative;
+  height: 100%;
+  display: flex;
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: $greyColor;
+    cursor: pointer;
+  }
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .searchBox {
+    width: auto;
+  }
+}
+
+.suggestions {
+  background-color: $suggestionsBgColor;
+  position: absolute;
+  margin-left: 10px;
+  z-index: 3;
+  width: 200px;
+  top: 30px;
+  border-radius: 0 0 5px 5px;
+  padding: 0;
+  list-style-type: none;
+
+  a {
+    color: $suggestionLinkColor;
+    text-decoration: none;
+    display: block;
+  }
+}
+
+.bar {
+  margin: 3px 0;
+  color: $greyColor;
+
+  &:last-of-type {
+    display: none;
+  }
+}
+
+.singleSuggestion {
+  padding: 4px 10px;
+}
+
+.quantity {
+  border: 3px solid $quantityColor;
+  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  margin-top: 10px;
+
+  &:hover {
+    border: 3px solid $quantityHoverColor;
+  }
+}
+
+@media (min-width: 576px) {
+  .quantity {
+    margin-top: 0px;
+  }
+}
+
+// --------------------------
+// MENU
+// --------------------------
+
+.cardsBox {
+  overflow: hidden;
+
+  a {
+    display: contents;
+  }
+}
+
+.section {
+  width: 100%;
+  height: 30vh;
+  transition: 0.5s all ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid black;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .section {
+    width: 20%;
+    height: calc(100vh - 121px) !important;
+
+    &:hover {
+      width: 70%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .section:hover {
+    width: 35%;
+  }
+}
+
+.title {
+  background-color: $titleBgColor;
+  color: $whiteColor;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+#travel,
+#events,
+#personal,
+#fun,
+#others {
+  background-size: cover;
+}
+
+#travel {
+  background-image: url("./assets/images/1.jpg");
+  background-position: left;
+}
+
+#events {
+  background-image: url(./assets/images/2.jpg);
+}
+
+#personal {
+  background-image: url(./assets/images/3.jpg);
+  background-position: center;
+}
+
+#fun {
+  background-image: url(./assets/images/4.jpg);
+  background-position: center;
+}
+
+#others {
+  background-image: url(./assets/images/5.jpg);
+  background-position: center;
+}
+
+.travelBox {
+  height: calc(100vh - 121px) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background-color: $mapBgColor;
+
+  h1 {
+    padding: 10px;
+  }
+}
+
+.osobisteBox,
+.rozrywkaBox,
+.wydarzeniaBox,
+.inneBox {
+  ul {
+    list-style-type: none;
+    margin: 30px 0;
+    padding-left: 10px;
+    font-size: 18px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    margin: 20px;
+    transform: scale(1.3);
+  }
+
+  h1 {
+    margin: 50px 0 30px;
+    background-color: $sectionHeaderColor;
+    color: $whiteColor;
+    padding: 15px 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 200;
+  }
+}
+
+#wydarzenia,
+#osobiste,
+#rozrywka,
+#inne {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+@media (min-width: 567px) {
+  .osobisteBox,
+  .rozrywkaBox,
+  .wydarzeniaBox,
+  .inneBox {
+    ul {
+      padding-left: 40px;
+    }
+  }
+}
+
+// --------------------------
+// LOGGING IN
+// --------------------------
+
+$linkColor: #5c87ff;
+$formColor: #1f1f1f;
+$textColor: #ffffff;
+$errorColor: #d84f4f;
+
+$borderRadius: 5px;
+
+.loginBox {
+  position: absolute;
+  z-index: 1000;
+}
+
+.loginComponent {
+  height: 100%;
+  width: 100%;
+}
+
+.loginFormBg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.auth-form {
+  margin: auto;
+  width: 400px;
+  background-color: $formColor;
+  border: 1px solid $linkColor;
+  border-radius: $borderRadius;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form-hidden {
+  display: none;
+}
+
+.form-title {
+  padding: 8px;
+  color: $textColor;
+}
+
+.form-message-error {
+  color: $errorColor;
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-input {
+  width: 90%;
+  margin: 20px;
+  padding: 8px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background-color: rgba(49, 48, 48, 0.158);
+  border: 2px solid $linkColor;
+  border-radius: $borderRadius;
+  transition: background 0.3s, border-color 0.3s;
+
+  &:focus {
+    border-color: rgb(114, 199, 128);
+    background: white;
+    box-shadow: 0 0 15px rgb(114, 199, 128);
+    color: $formColor;
+  }
+}
+
+.form-input-error,
+.form-create-error,
+.form-pass-error,
+.form-forgot-error {
+  color: $errorColor;
+  border-color: $errorColor;
+}
+
+.form-input-succes {
+  color: rgb(114, 199, 128);
+  border-color: rgb(114, 199, 128);
+}
+
+.form-button {
+  margin: 16px 0;
+  padding: 8px;
+  width: 90%;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: rgb(68, 177, 68);
+  color: $textColor;
+  border-radius: $borderRadius;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgb(50, 133, 50);
+  }
+}
+
+.form-link {
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: $linkColor;
+}
+
+.form-text {
+  margin: 8px;
+}
+
+// --------------------------
+// MAP ZOOM
+// --------------------------
+
+$countryHoverColor: #dcffba;
+
+.travelBox svg {
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+
+  path:hover {
+    fill: $countryHoverColor;
+  }
+}
+
+.mapBox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 0;
+}
+
+.zoomNav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#zoomPlus,
+#zoomMinus {
+  width: 30px;
+  height: 30px;
+}
+
+// --------------------------
+// BOOTSTRAP
+// --------------------------
+
+// @import "~bootstrap/scss/bootstrap";
+
+// --------------------------
+// FOOTER
+// --------------------------
+
+footer {
+  text-align: center;
+}

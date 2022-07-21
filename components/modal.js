@@ -30,7 +30,9 @@ import {
 // SESSION STORAGE OF TRAVEL ARRAY
 // ------------------------------
 export let travelArr = [];
-let travelMemory = JSON.parse(sessionStorage.getItem("travelSessionArr"));
+export let travelMemory = JSON.parse(
+  sessionStorage.getItem("travelSessionArr")
+);
 
 if (travelMemory !== null) {
   travelArr = travelMemory;
@@ -146,9 +148,11 @@ const readJson2 = async function () {
     travelSelect.appendChild(travelSelectBtn);
 
     if (travelArr.includes(kraj.getAttribute("id"))) {
-      travelSelectBtn.setAttribute("checked", "checked");
+      // travelSelectBtn.setAttribute("checked", "checked");
+      travelSelectBtn.checked = true;
     } else {
-      travelSelectBtn.removeAttribute("checked");
+      // travelSelectBtn.removeAttribute("checked");
+      travelSelectBtn.checked = false;
     }
 
     // ------------------------------
@@ -158,14 +162,16 @@ const readJson2 = async function () {
 
     travelSelectBtn.addEventListener("click", () => {
       if (travelSelectBtn.getAttribute("checked") === "checked") {
-        travelSelectBtn.removeAttribute("checked");
+        // travelSelectBtn.removeAttribute("checked");
+        travelSelectBtn.checked = false;
         for (let i = 0; i < travelArr.length; i++) {
           if (travelArr[i] === kraj.getAttribute("id")) {
             travelArr.splice(i, 1);
           }
         }
       } else {
-        travelSelectBtn.setAttribute("checked", "checked");
+        // travelSelectBtn.setAttribute("checked", "checked");
+        travelSelectBtn.checked = true;
         travelArr.push(kraj.getAttribute("id"));
       }
       fullArr.superArray = eventsArr.concat(

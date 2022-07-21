@@ -16,7 +16,7 @@ export let fullArr = {
   ).length,
 };
 import { questionsJS } from "../main.js";
-import { kraje } from "./modal.js";
+import { kraje, travelMemory } from "./modal.js";
 
 // --------------------------------
 // SESSIONSTORAGE LOGICS
@@ -94,7 +94,8 @@ const readQuestionsJson = async function () {
   const checkedIfInArray = (inputName, arrName) => {
     inputName.forEach((input) => {
       if (arrName.includes(input.id)) {
-        input.setAttribute("checked", "checked");
+        // input.setAttribute("checked", "checked");
+        input.checked = true;
       }
     });
   };
@@ -110,15 +111,17 @@ const readQuestionsJson = async function () {
   const addEvent = (inputName, arrName, sessionName) => {
     inputName.forEach((singleInput) =>
       singleInput.addEventListener("click", (e) => {
-        if (e.target.getAttribute("checked")) {
-          e.target.removeAttribute("checked");
+        if (e.target.checked === false) {
+          // e.target.removeAttribute("checked");
+          e.target.checked = false;
           for (let i = 0; i < arrName.length; i++) {
             if (arrName[i] === e.target.id) {
               arrName.splice(i, 1);
             }
           }
         } else {
-          e.target.setAttribute("checked", "checked");
+          // e.target.setAttribute("checked", "checked");
+          e.target.checked = true;
           arrName.push(e.target.id);
         }
         fullArr.superArray = eventsArr.concat(

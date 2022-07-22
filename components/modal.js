@@ -1,7 +1,9 @@
 // ------------------------------
 // IMPORTS AND DECLARATIONS
 // ------------------------------
-
+window.addEventListener("click", () => {
+  console.log(travelArr);
+});
 export const kraje = document.querySelectorAll(".travelBox svg path");
 const modalBackground = document.createElement("div");
 const modalMap = document.createElement("div");
@@ -161,7 +163,7 @@ const readJson2 = async function () {
     // ------------------------------
 
     travelSelectBtn.addEventListener("click", () => {
-      if (travelSelectBtn.getAttribute("checked") === "checked") {
+      if (travelSelectBtn.checked === false) {
         // travelSelectBtn.removeAttribute("checked");
         travelSelectBtn.checked = false;
         for (let i = 0; i < travelArr.length; i++) {

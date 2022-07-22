@@ -18,6 +18,19 @@ export let fullArr = {
 import { questionsJS } from "../main.js";
 import { kraje, travelMemory } from "./modal.js";
 
+// window.addEventListener("click", () => {
+//   console.log("Personal: " + personalArr);
+//   console.log("Ent: " + enterntainmentArr);
+//   console.log("Others: " + othersArr);
+//   console.log("Travel: " + travelArr);
+//   console.log("Full: " + fullArr.superArray);
+
+//   console.log("Personal Memory: " + personalMemory);
+//   console.log("Ent Memory: " + entMemory);
+//   console.log("Others Memory: " + otherMemory);
+//   console.log("Travel Memory: " + travelMemory);
+// });
+
 // --------------------------------
 // SESSIONSTORAGE LOGICS
 // --------------------------------

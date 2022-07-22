@@ -57,7 +57,7 @@ const readJson = async function () {
     // --------------------------------
 
     arrCountriesSearch.forEach(function (item) {
-      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#${item}"">${item}</a></li>`;
+      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#${item}"">${item}</a></li><hr class = "bar">`;
     });
 
     // --------------------------------

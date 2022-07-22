@@ -86,20 +86,19 @@ const readQuestionsJson = async function () {
     }
   };
 
-  generateListItems("wydarzeniaBox", "eventInput", "Wydarzenia");
-  generateListItems("osobisteBox", "personalInput", "Osobiste");
-  generateListItems("rozrywkaBox", "entertainmentInput", "Rozrywka");
-  generateListItems("inneBox", "othersInput", "Inne");
+  generateListItems("eventsBox", "eventInput", "Wydarzenia");
+  generateListItems("personalBox", "personalInput", "Osobiste");
+  generateListItems("funBox", "entertainmentInput", "Rozrywka");
+  generateListItems("othersBox", "othersInput", "Inne");
 
   // --------------------------------
   // ON CLICK: ADD TO ARRAY AND ADD PROPERTY CHECKED/
   // REMOVE FROM ARRAY AND REMOVE PROPERTY CHECKED
   // --------------------------------
-  const allPersonalInputs = document.querySelectorAll(".osobisteBox input");
-  const allEventsInputs = document.querySelectorAll(".wydarzeniaBox input");
-  const allEntertainmentInputs =
-    document.querySelectorAll(".rozrywkaBox input");
-  const allOtherInputs = document.querySelectorAll(".inneBox input");
+  const allPersonalInputs = document.querySelectorAll(".personalBox input");
+  const allEventsInputs = document.querySelectorAll(".eventsBox input");
+  const allEntertainmentInputs = document.querySelectorAll(".funBox input");
+  const allOtherInputs = document.querySelectorAll(".othersBox input");
 
   // --------------------------------
   // CHECK IF IT IS IN ARRAY

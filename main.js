@@ -13,10 +13,10 @@ export const questionsJS = questionsJ;
 
 const hideAllComponents = function () {
   document.querySelector(".travelComponent").classList.add("d-none");
-  document.querySelector(".osobisteComponent").classList.add("d-none");
-  document.querySelector(".wydarzeniaComponent").classList.add("d-none");
-  document.querySelector(".rozrywkaComponent").classList.add("d-none");
-  document.querySelector(".inneComponent").classList.add("d-none");
+  document.querySelector(".personalComponent").classList.add("d-none");
+  document.querySelector(".eventsComponent").classList.add("d-none");
+  document.querySelector(".funComponent").classList.add("d-none");
+  document.querySelector(".othersComponent").classList.add("d-none");
   document.querySelector(".menuComponent").classList.add("d-none");
   document.querySelector(".searchBox").classList.add("d-none");
   document.querySelector(".resultsComponent").classList.add("d-none");
@@ -40,16 +40,16 @@ window.addEventListener("hashchange", function () {
     document.querySelector(".searchBox").classList.remove("d-none");
   } else if (location.hash === "#osobiste") {
     hideAllComponents();
-    document.querySelector(".osobisteComponent").classList.remove("d-none");
+    document.querySelector(".personalComponent").classList.remove("d-none");
   } else if (location.hash === "#wydarzenia") {
     hideAllComponents();
-    document.querySelector(".wydarzeniaComponent").classList.remove("d-none");
+    document.querySelector(".eventsComponent").classList.remove("d-none");
   } else if (location.hash === "#rozrywka") {
     hideAllComponents();
-    document.querySelector(".rozrywkaComponent").classList.remove("d-none");
+    document.querySelector(".funComponent").classList.remove("d-none");
   } else if (location.hash === "#inne") {
     hideAllComponents();
-    document.querySelector(".inneComponent").classList.remove("d-none");
+    document.querySelector(".othersComponent").classList.remove("d-none");
   } else if (location.hash === "#results") {
     hideAllComponents();
     document.querySelector(".resultsComponent").classList.remove("d-none");
@@ -59,19 +59,3 @@ window.addEventListener("hashchange", function () {
     document.querySelector(".comeBack").classList.add("d-none");
   }
 });
-
-// -------------------------------------------
-// SEARCH
-// -------------------------------------------
-
-// -------------------------------------------
-// ZOOM
-// -------------------------------------------
-
-// -------------------------------------------
-// MODAL
-// -------------------------------------------
-
-// -------------------------------------------
-// LIST
-// -------------------------------------------

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bucket Travel</title>
+    <title>Bucket Travel - the App!</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <!-- -------------------------
+      NAVIGATION
+      -------------------------- -->
     <nav
       class="navbar fixed-top text-light bg-grey py-1 px-3 d-flex justify-content-between align-items-center"
     >
@@ -72,6 +75,9 @@
         </div>
       </header>
 
+      <!-- -------------------------
+      TRAVEL SECTION
+      -------------------------- -->
       <section id="podroze" class="travelComponent container-fluid p-0 d-none">
         <div class="row m-0">
           <div class="travelBox col-12 d-flex p-0">
@@ -325,45 +331,57 @@
         </div>
       </section>
 
-      <section
-        id="wydarzenia"
-        class="wydarzeniaComponent container-fluid d-none"
-      >
+      <!-- -------------------------
+      EVENTS SECTION
+      -------------------------- -->
+      <section id="wydarzenia" class="eventsComponent container-fluid d-none">
         <div class="row m-0">
-          <div class="wydarzeniaBox col-11 col-md-9 mx-auto px-0 py-2">
+          <div class="eventsBox col-11 col-md-9 mx-auto px-0 py-2">
             <h1>Wydarzenia</h1>
             <ul></ul>
           </div>
         </div>
       </section>
 
-      <section id="osobiste" class="osobisteComponent container-fluid d-none">
+      <!-- -------------------------
+      PERSONAL SECTION
+      -------------------------- -->
+      <section id="osobiste" class="personalComponent container-fluid d-none">
         <div class="row m-0">
-          <div class="osobisteBox col-11 col-md-9 mx-auto px-0 py-2">
+          <div class="personalBox col-11 col-md-9 mx-auto px-0 py-2">
             <h1>Osobiste</h1>
             <ul></ul>
           </div>
         </div>
       </section>
 
-      <section id="rozrywka" class="rozrywkaComponent container-fluid d-none">
+      <!-- -------------------------
+      ENTERTAINMENT/FUN SECTION
+      -------------------------- -->
+      <section id="rozrywka" class="funComponent container-fluid d-none">
         <div class="row m-0">
-          <div class="rozrywkaBox col-11 col-md-9 mx-auto px-0 py-2">
+          <div class="funBox col-11 col-md-9 mx-auto px-0 py-2">
             <h1>Rozrywka</h1>
             <ul></ul>
           </div>
         </div>
       </section>
 
-      <section id="inne" class="inneComponent container-fluid d-none">
+      <!-- -------------------------
+      OTHERS SECTION
+      -------------------------- -->
+      <section id="inne" class="othersComponent container-fluid d-none">
         <div class="row m-0">
-          <div class="inneBox col-11 col-md-9 mx-auto px-0 py-2">
+          <div class="othersBox col-11 col-md-9 mx-auto px-0 py-2">
             <h1>Inne</h1>
             <ul></ul>
           </div>
         </div>
       </section>
 
+      <!-- -------------------------
+      FINAL RESULTS
+      -------------------------- -->
       <section id="results" class="resultsComponent container-fluid p-0 d-none">
         <div class="row m-0">
           <div class="resultsBox col-11 col-md-9 mx-auto px-0 py-2"></div>

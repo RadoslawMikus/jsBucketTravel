@@ -1,7 +1,6 @@
 // -----------------------------
 // DECLARATIONS
 // -----------------------------
-
 const zoomPlus = document.querySelector("#zoomPlus");
 const zoomMinus = document.querySelector("#zoomMinus");
 const europeMap = document.querySelector(".mapBox svg");
@@ -13,7 +12,6 @@ let currentScale = 1;
 // -----------------------------
 // FUNCTIONS ZOOM IN AND ZOOM OUT
 // -----------------------------
-
 const zoomIn = function () {
   if (currentScale < 3) {
     currentScale *= 1.3;
@@ -47,7 +45,6 @@ let bbox;
 // -----------------------------
 // MOVE MAP - FUNCTION ON MOUSE CLICK
 // -----------------------------
-
 const dragDown = function (e) {
   isReadyToClick = true;
   let europeMap = document.querySelector(".mapBox svg");
@@ -62,10 +59,10 @@ const dragDown = function (e) {
 };
 
 mapBox.addEventListener("mousedown", dragDown);
+
 // -----------------------------
 // MOVE MAP - FUNCTION ON MOUSE MOVE
 // -----------------------------
-
 const dragMove = function (e) {
   if (isPressed == true) {
     isPressed = true;
@@ -100,7 +97,6 @@ const dragMove = function (e) {
 // -----------------------------
 // MOVE MAP - FUNCTION ON MOUSE UP
 // -----------------------------
-
 const dragQuit = function (e) {
   isPressed = false;
   setTimeout(() => {

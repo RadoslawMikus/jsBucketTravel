@@ -2,8 +2,7 @@
 // DECLARATIONS
 // --------------------------------
 import { countriesJS } from "../main.js";
-
-const okienko = document.querySelector(".searchingBar");
+const searchBar = document.querySelector(".searchingBar");
 const suggestions = document.querySelector(".suggestions");
 const xClosing = document.querySelector(".searching span");
 let arrCountriesSearch = [];
@@ -11,110 +10,80 @@ let arrCountriesSearch = [];
 // --------------------------------
 // RESET SUGGESTIONS
 // --------------------------------
-
 const reset = function () {
   arrCountriesSearch = [];
   suggestions.innerHTML = "";
-  okienko.style.borderRadius = "5px";
+  searchBar.style.borderRadius = "5px";
 };
 
 // --------------------------------
-// READ JSON WITH COUNTRIES
+// LOAD COUNTRIES
 // --------------------------------
+const loadCountries = function (e) {
+  reset();
 
-const readJson = async function () {
-  const countriesJSON = countriesJS;
-  // const response = await fetch(countriesJSON);
-  // const data = await response.json();
-  // const countries = data;
-  const countries = countriesJS;
+  if (searchBar.value != "") {
+    xClosing.style.display = "block";
+  } else {
+    xClosing.style.display = "none";
+  }
+  for (let i = 0; i < countriesJS.Countries.length; i++) {
+    if (
+      countriesJS.Countries[i].name
+        .toLowerCase()
+        .startsWith(e.target.value.toLowerCase())
+    ) {
+      arrCountriesSearch.push(countriesJS.Countries[i].name);
+      searchBar.style.borderRadius = "5px 5px 0 0";
+    }
+  }
+
+  searchBar.addEventListener("input", loadCountries);
 
   // --------------------------------
-  // LOAD COUNTRIES
+  // GENERATE SUGGESTIONS
   // --------------------------------
+  arrCountriesSearch.forEach(function (item) {
+    suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#podroze"">${item}</a></li><hr class = "bar">`;
+  });
 
-  const loadCountries = function (event) {
-    reset();
-
-    if (okienko.value != "") {
-      xClosing.style.display = "block";
-    } else {
-      xClosing.style.display = "none";
-    }
-    for (let i = 0; i < countries.Countries.length; i++) {
-      if (
-        countries.Countries[i].name
-          .toLowerCase()
-          .startsWith(event.target.value.toLowerCase())
-      ) {
-        arrCountriesSearch.push(countries.Countries[i].name);
-        okienko.style.borderRadius = "5px 5px 0 0";
-      }
-    }
-
-    // --------------------------------
-    // GENERATE SUGGESTIONS
-    // --------------------------------
-
-    arrCountriesSearch.forEach(function (item) {
-      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#${item}"">${item}</a></li><hr class = "bar">`;
-    });
-
-    // --------------------------------
-    // RESET IF EMPTY
-    // --------------------------------
-
-    if (event.target.value == "" || arrCountriesSearch == "") {
-      reset();
-    }
-  };
-
-  okienko.addEventListener("input", loadCountries);
+  // --------------------------------
+  // RESET IF EMPTY
+  // --------------------------------
+  e.target.value == "" || arrCountriesSearch == "" ? reset() : "";
 };
-
-// --------------------------------
-// RUN FUNCTION READJSON
-// --------------------------------
-
-readJson();
 
 // --------------------------------
 // CLICK AND ESCAPE TO CLOSE
 // --------------------------------
-
-const clickToClose = function (event) {
-  if (event.target.classList.contains("singleSuggestion")) {
-    okienko.value = event.target.innerHTML;
+const clickToClose = function (e) {
+  if (e.target.classList.contains("singleSuggestion")) {
+    searchBar.value = e.target.innerHTML;
     reset();
-  } else if (event.target !== okienko) {
+  } else if (e.target !== searchBar) {
     reset();
   }
 
-  if (okienko.value != "") {
+  if (searchBar.value != "") {
     xClosing.style.display = "block";
   } else {
     xClosing.style.display = "none";
   }
 };
 
-const escapeToClose = function (event) {
-  if (event.key == "Escape") {
-    reset();
-  }
-};
+const escapeToClose = (e) => (e.key === "Escape" ? reset() : "");
 
 // --------------------------------
 // CLICK X AND ENTER TO RESET INPUT
 // --------------------------------
-
-const xToResetInput = function () {
-  okienko.value = "";
+const xToResetInput = () => {
+  searchBar.value = "";
   xClosing.style.display = "none";
 };
 
-const enterToResetInput = function (event) {
-  if (event.key == "Enter") {
-    okienko.value = "";
+const enterToResetInput = (e) => {
+  if (e.key == "Enter") {
+    searchBar.value = "";
     xClosing.style.display = "none";
     reset();
   }
@@ -123,9 +92,8 @@ const enterToResetInput = function (event) {
 // --------------------------------
 // POPULAR SUGGESTIONS
 // --------------------------------
-
-const focusPopular = function (event) {
-  if (event.target.value == "" && arrCountriesSearch == "") {
+const focusPopular = function (e) {
+  if (e.target.value == "" && arrCountriesSearch == "") {
     arrCountriesSearch = [
       "Francja",
       "Włochy",
@@ -134,9 +102,9 @@ const focusPopular = function (event) {
       "Hiszpania",
     ];
     arrCountriesSearch.forEach(function (item) {
-      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#${item}">${item}</a></li><hr class = "bar">`;
+      suggestions.innerHTML += `<li><a class= "singleSuggestion" href = "#podroze">${item}</a></li><hr class = "bar">`;
     });
-    okienko.style.borderRadius = "5px 5px 0 0";
+    searchBar.style.borderRadius = "5px 5px 0 0";
   }
 };
 

@@ -97,7 +97,7 @@ export const questionsJ = {
     8: "Pójdę na mecz w siatkówkę",
     9: "Pójdę na żużel",
     10: "Pójdę na mecz piłki ręcznej",
-    11: "Pojadę na mecz reprezentacji Polski zza granicę",
+    11: "Pojadę na mecz reprezentacji Polski za granicę",
     12: "Przeczytam 3 książki ulubionego autora",
     13: "Wykupię dostęp do Disney+",
     14: "Wykupię dostęp do Netflixa",

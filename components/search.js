@@ -38,8 +38,6 @@ const loadCountries = function (e) {
     }
   }
 
-  searchBar.addEventListener("input", loadCountries);
-
   // --------------------------------
   // GENERATE SUGGESTIONS
   // --------------------------------
@@ -52,7 +50,7 @@ const loadCountries = function (e) {
   // --------------------------------
   e.target.value == "" || arrCountriesSearch == "" ? reset() : "";
 };
-
+searchBar.addEventListener("input", loadCountries);
 // --------------------------------
 // CLICK AND ESCAPE TO CLOSE
 // --------------------------------

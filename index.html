@@ -21,7 +21,7 @@
       class="navbar fixed-top text-light bg-grey py-1 px-3 d-flex justify-content-between align-items-center"
     >
       <span class="order-1 order-sm-2"
-        ><a class="comeBack" href="#">WRÓĆ</a></span
+        ><a class="comeBack d-none" href="#">WRÓĆ</a></span
       >
 
       <a class="order-2 order-sm-3" href="#results"
@@ -382,9 +382,21 @@
       <!-- -------------------------
       FINAL RESULTS
       -------------------------- -->
-      <section id="results" class="resultsComponent container-fluid p-0 d-none">
+      <section
+        id="results"
+        class="resultsComponent container-fluid px-0 d-none"
+      >
         <div class="row m-0">
           <div class="resultsBox col-11 col-md-9 mx-auto px-0 py-2"></div>
+        </div>
+      </section>
+
+      <section id="errorPage" class="d-none">
+        <div class="row m-0">
+          <div class="errorBox col-11 col-md-9 mx-auto px-0 py-2">
+            <div>Błąd! Wróć na stronę główną 😉</div>
+            <a href="#">Powrót</a>
+          </div>
         </div>
       </section>
     </main>

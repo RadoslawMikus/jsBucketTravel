@@ -616,23 +616,6 @@ export const countriesJ = {
       emblem: "http://miodzio-bus.pl/img/coats/russia.png",
     },
     {
-      name: "San Marino",
-      code: "SM",
-      capital: "San Marino",
-      region: "EU",
-      population: "33 939",
-      info1: "San Marino nie ma prezydenta. Na czele rządu stoją dwaj regenci.",
-      info2: "W San Marino nie ma lotniska. ",
-      info3: "Abraham Lincoln jest honorowym obywatelem San Marino.",
-      info4: "Przejścia dla pieszych w kraju są w kolorach flagi.",
-      info5:
-        "Statut San Marino z 1600 roku przez niektórych uważany jest za pierwszą konstytucję na świecie.",
-      currency: { code: "EUR", name: "Euro", symbol: "€" },
-      language: { code: "it", name: "Włoski" },
-      flag: "https://flagcdn.com/sm.svg",
-      emblem: "http://miodzio-bus.pl/img/coats/sanmarino.png",
-    },
-    {
       name: "Serbia",
       code: "RS",
       capital: "Belgrad",

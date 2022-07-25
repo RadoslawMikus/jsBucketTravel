@@ -1,6 +1,9 @@
 ## jsBucketTravel
 
-The goal is to create a project that will let to create a bucket list (list of things that someone wants to do in his life).
+### Repository: https://github.com/davidsmith931/jsBucketTravel
+### Live Demo: https://davidsmith931.github.io/jsBucketTravel/ 
+
+The project will help to create a bucket list (list of things you want to do before you... die).
 
 ### 🔍 &nbsp; Searching 
 

@@ -14,7 +14,7 @@ _We want to type a country name into the search bar, to get suggestions while wr
 - [X] Click X to clear the searching bar
 - [X] Make it interactive with map
 
-### ✅&nbsp; Todo
+### ✅ &nbsp; Todo
 
 _We want to create a list with tasks to do with an option to add it and to remove it from bucket list_
 

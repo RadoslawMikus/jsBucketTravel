@@ -2,7 +2,6 @@
 // DECLARATIONS
 // --------------------------------
 import { travelArr } from "./modal.js";
-// let questions;
 export let eventsArr = [];
 export let personalArr = [];
 export let enterntainmentArr = [];

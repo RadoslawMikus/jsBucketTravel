@@ -1,7 +1,7 @@
 ## jsBucketTravel
 
-### Repository: https://github.com/davidsmith931/jsBucketTravel
-### Live Demo: https://davidsmith931.github.io/jsBucketTravel/ 
+### Repository: https://github.com/RadoslawMikus/jsBucketTravel
+### Live Demo: https://radoslawmikus.github.io/jsBucketTravel/
 
 The project will help to create a bucket list (list of things you want to do before you... die).
 
